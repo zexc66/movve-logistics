@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { cn } from '../utils/cn'
 import { Footer } from './Footer'
-import { Icons } from './Icons'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -32,38 +30,36 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <nav
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          scrolled ? 'bg-navy/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-        )}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200' : 'bg-transparent'
+        }`}
       >
-        <div className="container">
-          <div className="flex items-center justify-between py-4">
-          <Link to="/" className="text-2xl font-bold text-white flex items-center gap-2">
-            <span className="w-8 h-8 flex items-center justify-center text-brand-accent">
-              {Icons.threeBar}
-            </span>
-            <span>MOVVE</span>
-          </Link>
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between py-5">
+            <Link to="/" className="text-2xl font-bold text-slate-900 flex items-center gap-3">
+              <span className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-white font-display text-xl">
+                M
+              </span>
+              <span>MOVVE</span>
+            </Link>
 
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={cn(
-                    'text-sm font-medium transition-colors',
+                  className={`text-sm font-medium transition-colors ${
                     location.pathname === link.path
-                      ? 'text-crimson'
-                      : 'text-gray-300 hover:text-crimson'
-                  )}
+                      ? 'text-slate-900'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
                 to="/contact"
-                className="px-6 py-2.5 bg-crimson text-white rounded-sm font-semibold hover:bg-crimson/90 transition-colors"
+                className="px-6 py-3 bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors rounded-lg"
               >
                 Get Started
               </Link>
@@ -71,7 +67,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-white p-2"
+              className="md:hidden text-slate-900 p-2"
               aria-label="Toggle menu"
             >
               <svg
@@ -82,9 +78,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 stroke="currentColor"
                 strokeWidth="2"
               >
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
+                {isMenuOpen ? (
+                  <path d="M18 6L6 18M6 6l12 12" />
+                ) : (
+                  <>
+                    <path d="M3 6h18" />
+                    <path d="M3 12h18" />
+                    <path d="M3 18h18" />
+                  </>
+                )}
               </svg>
             </button>
           </div>
@@ -97,7 +99,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-navy/95 backdrop-blur-md z-40 md:hidden"
+            className="fixed inset-0 bg-white z-40 md:hidden"
           >
             <div className="container flex flex-col items-center justify-center h-full gap-8">
               {navLinks.map((link, index) => (
@@ -111,17 +113,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   <Link
                     to={link.path}
                     onClick={() => setIsMenuOpen(false)}
-                    className={cn(
-                      'text-2xl font-medium transition-colors',
+                    className={`text-2xl font-medium transition-colors ${
                       location.pathname === link.path
-                        ? 'text-crimson'
-                        : 'text-white hover:text-crimson'
-                    )}
+                        ? 'text-slate-900'
+                        : 'text-slate-600 hover:text-slate-900'
+                    }`}
                   >
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
+              <Link
+                to="/contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="mt-8 px-8 py-4 bg-slate-900 text-white font-semibold rounded-lg"
+              >
+                Get Started
+              </Link>
             </div>
           </motion.div>
         )}

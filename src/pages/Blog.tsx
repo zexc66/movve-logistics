@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 
 export function Blog() {
   const posts = [
@@ -71,45 +70,38 @@ export function Blog() {
 
   return (
     <>
-      <section className="py-space-4xl bg-brand-primary">
+      {/* Header */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-space-lg flex items-center justify-center gap-space-sm">
-              <div className="w-12 h-px bg-brand-accent"></div>
-              <span className="text-brand-accent uppercase tracking-wider text-sm font-display font-semibold">
-                Insights
-              </span>
-              <div className="w-12 h-px bg-brand-accent"></div>
-            </div>
-
-            <h1 className="font-display font-hero font-bold text-brand-surface mb-space-md">
+          <div className="max-w-4xl">
+            <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-8">
               Logistics Intelligence & Trends
             </h1>
-            <p className="text-brand-secondary-light text-body text-xl leading-relaxed mb-space-xl">
-              Stay informed with the latest industry news, expert analysis, and actionable insights from our logistics experts.
+            <p className="text-xl text-slate-600 leading-relaxed max-w-2xl">
+              Stay informed with the latest industry news, expert analysis, and actionable insights
+              from our logistics experts.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-space-4xl bg-gradient-to-b from-brand-primary to-brand-primary-dark">
+      {/* Blog Content */}
+      <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="lg:grid lg:grid-cols-4 gap-space-3xl">
+          <div className="lg:grid lg:grid-cols-4 gap-16">
             <aside className="lg:col-span-1">
-              <div className="sticky top-24 p-space-xl border border-brand-border/50 bg-brand-primary/30">
-                <h3 className="font-display text-h3 font-bold text-brand-surface mb-space-lg">
+              <div className="sticky top-24 bg-white border border-slate-200 p-8 rounded-lg">
+                <h3 className="text-xl font-bold text-slate-900 mb-6">
                   Categories
                 </h3>
-                <div className="space-y-space-sm">
+                <div className="space-y-2">
                   {categories.map((category) => (
                     <button
                       key={category.name}
-                      className="w-full flex justify-between items-center px-space-md py-space-sm bg-brand-surface/5 border border-brand-border text-brand-text hover:bg-brand-surface hover:border-brand-accent/30 hover:text-brand-accent transition-all text-left group"
+                      className="w-full flex justify-between items-center px-4 py-3 bg-slate-50 hover:bg-slate-100 transition-colors rounded-lg text-left"
                     >
-                      <span>{category.name}</span>
-                      <span className="text-brand-muted text-sm">
-                        {category.count}
-                      </span>
+                      <span className="font-medium text-slate-700">{category.name}</span>
+                      <span className="text-sm text-slate-500">{category.count}</span>
                     </button>
                   ))}
                 </div>
@@ -117,7 +109,7 @@ export function Blog() {
             </aside>
 
             <div className="lg:col-span-3">
-              <div className="grid md:grid-cols-2 gap-space-lg">
+              <div className="grid md:grid-cols-2 gap-8">
                 {posts.map((post, index) => (
                   <motion.article
                     key={post.id}
@@ -125,73 +117,68 @@ export function Blog() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="border border-brand-border/50 bg-brand-primary/30 p-space-xl hover:border-brand-accent/30 transition-all group"
+                    className="bg-white border border-slate-200 hover:border-slate-300 transition-colors rounded-lg overflow-hidden"
                   >
-                    <div className="aspect-video bg-gradient-to-br from-brand-accent/10 to-brand-accent/5 flex items-center justify-center text-brand-accent text-4xl mb-space-md">
+                    <div className="aspect-video bg-slate-100 flex items-center justify-center text-slate-300 text-6xl mb-6">
                       📦
                     </div>
-                    <div className="flex flex-wrap items-center gap-space-sm mb-space-md text-brand-muted text-sm">
-                      <span className="px-space-sm py-space-xs bg-brand-accent/20 text-brand-surface font-semibold uppercase tracking-wider">
-                        {post.category}
-                      </span>
-                      <span>•</span>
-                      <span>{post.date}</span>
-                      <span>•</span>
-                      <span>{post.readTime}</span>
-                      <span>•</span>
-                      <span>{post.metrics}</span>
+                    <div className="p-8">
+                      <div className="flex flex-wrap items-center gap-3 mb-4 text-sm text-slate-600">
+                        <span className="px-3 py-1 bg-slate-100 font-semibold rounded">
+                          {post.category}
+                        </span>
+                        <span>•</span>
+                        <span>{post.date}</span>
+                        <span>•</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                        {post.title}
+                      </h3>
+                      <p className="text-slate-600 mb-6 leading-relaxed">
+                        {post.excerpt}
+                      </p>
+                      <button className="text-slate-900 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all">
+                        <span>Read Full Article</span>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                      </button>
                     </div>
-                    <h3 className="font-display text-h2 font-bold text-brand-surface mb-space-md group-hover:text-brand-accent transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="text-brand-secondary-light text-body text-sm leading-relaxed mb-space-md">
-                      {post.excerpt}
-                    </p>
-                    <Link
-                      to="#"
-                      className="inline-flex items-center gap-space-sm text-brand-accent font-display font-semibold group-hover:gap-space-lg transition-all"
-                    >
-                      Read Full Article
-                      <span>→</span>
-                    </Link>
                   </motion.article>
                 ))}
               </div>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="text-center mt-space-xl"
-              >
-                <button className="px-space-xl py-space-md bg-brand-surface/10 border border-brand-border text-brand-text font-display font-semibold hover:bg-brand-surface hover:border-brand-accent/30 transition-colors">
+              <div className="text-center mt-16">
+                <button className="px-10 py-4 bg-white border-2 border-slate-200 text-slate-700 font-semibold hover:border-slate-300 transition-colors rounded-lg">
                   Load More Articles
                 </button>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-space-4xl bg-brand-primary-dark">
+      {/* Newsletter */}
+      <section className="py-24 bg-slate-900">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-display text-h1 font-bold text-brand-surface mb-space-md">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Subscribe to Intelligence Updates
             </h2>
-            <p className="text-brand-secondary-light text-body text-xl mb-space-2xl">
+            <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
               Get the latest logistics insights delivered to your inbox weekly.
             </p>
 
-            <form className="flex flex-col sm:flex-row gap-space-sm max-w-md mx-auto">
+            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-space-lg py-space-md bg-brand-surface border-2 border-brand-border text-brand-text placeholder-brand-muted focus:outline-none focus:ring-2 focus:ring-brand-accent transition-colors"
+                className="flex-1 px-6 py-4 bg-slate-800 border-2 border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:border-slate-500 transition-colors rounded-lg"
               />
               <button
                 type="submit"
-                className="px-space-xl py-space-md bg-brand-accent text-brand-surface font-display font-bold hover:bg-brand-accent-dark transition-colors"
+                className="px-8 py-4 bg-white text-slate-900 font-bold hover:bg-slate-50 transition-colors rounded-lg"
               >
                 Subscribe
               </button>

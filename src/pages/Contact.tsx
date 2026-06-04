@@ -62,65 +62,60 @@ export function Contact() {
 
   return (
     <>
-      <section className="py-space-4xl bg-brand-primary">
+      {/* Header */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-space-lg flex items-center justify-center gap-space-sm">
-              <div className="w-12 h-px bg-brand-accent"></div>
-              <span className="text-brand-accent uppercase tracking-wider text-sm font-display font-semibold">
-                Contact Us
-              </span>
-              <div className="w-12 h-px bg-brand-accent"></div>
-            </div>
-
-            <h1 className="font-display font-hero font-bold text-brand-surface mb-space-md">
+          <div className="max-w-4xl">
+            <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-8">
               Get in Touch
             </h1>
-            <p className="text-brand-secondary-light text-body text-xl leading-relaxed mb-space-2xl">
-              Ready to transform your supply chain? Contact our team for a personalized demo and see precision in action.
+            <p className="text-xl text-slate-600 leading-relaxed max-w-2xl">
+              Ready to transform your supply chain? Contact our team for a personalized demo
+              and see precision in action.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-space-4xl bg-gradient-to-b from-brand-primary to-brand-primary-dark">
+      {/* Contact Form */}
+      <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="lg:grid lg:grid-cols-2 gap-space-3xl max-w-6xl mx-auto">
+          <div className="lg:grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
             <div>
-              <div className="mb-space-lg">
-                <h2 className="font-display text-h2 font-bold text-brand-surface mb-space-md">
-                  Send Us a Message
-                </h2>
-                <p className="text-brand-secondary-light text-body text-base">
-                  Fill out the form below and our team will respond within 24 hours.
-                </p>
-              </div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">
+                Send Us a Message
+              </h2>
+              <p className="text-lg text-slate-600 mb-8">
+                Fill out the form below and our team will respond within 24 hours.
+              </p>
 
               {submitStatus === 'success' && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-space-lg p-space-lg border-2 border-brand-success bg-brand-success/5"
+                  className="mb-8 p-6 bg-emerald-50 border-2 border-emerald-200 rounded-lg"
                 >
-                  <div className="flex items-center gap-space-sm mb-space-sm">
-                    <span className="w-8 h-8 bg-brand-success rounded-full flex items-center justify-center">
-                      ✓
-                    </span>
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
                     <div>
-                      <h3 className="font-display text-h3 font-bold text-brand-success">
+                      <h3 className="text-lg font-bold text-emerald-900 mb-2">
                         Message Sent
                       </h3>
-                      <p className="text-brand-success-light">
-                        Our team will respond within 24 hours
+                      <p className="text-emerald-700">
+                        Our team will respond within 24 hours.
                       </p>
                     </div>
                   </div>
                 </motion.div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-space-md">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-brand-surface font-display font-semibold mb-space-sm">
+                  <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-3">
                     Name *
                   </label>
                   <input
@@ -131,12 +126,12 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="John Smith"
-                    className="w-full px-space-lg py-space-md bg-brand-surface border-2 border-brand-border text-brand-text placeholder-brand-muted focus:outline-none focus:ring-2 focus:ring-brand-accent transition-colors"
+                    className="w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-lg"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-brand-surface font-display font-semibold mb-space-sm">
+                  <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-3">
                     Email *
                   </label>
                   <input
@@ -147,12 +142,12 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="john@company.com"
-                    className="w-full px-space-lg py-space-md bg-brand-surface border-2 border-brand-border text-brand-text placeholder-brand-muted focus:outline-none focus:ring-2 focus:ring-brand-accent transition-colors"
+                    className="w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-lg"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-brand-surface font-display font-semibold mb-space-sm">
+                  <label htmlFor="company" className="block text-sm font-semibold text-slate-700 mb-3">
                     Company
                   </label>
                   <input
@@ -162,12 +157,12 @@ export function Contact() {
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Your Company"
-                    className="w-full px-space-lg py-space-md bg-brand-surface border-2 border-brand-border text-brand-text placeholder-brand-muted focus:outline-none focus:ring-2 focus:ring-brand-accent transition-colors"
+                    className="w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-lg"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-brand-surface font-display font-semibold mb-space-sm">
+                  <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-3">
                     Message *
                   </label>
                   <textarea
@@ -178,14 +173,14 @@ export function Contact() {
                     required
                     rows={6}
                     placeholder="Tell us about your logistics needs..."
-                    className="w-full px-space-lg py-space-md bg-brand-surface border-2 border-brand-border text-brand-text placeholder-brand-muted focus:outline-none focus:ring-2 focus:ring-brand-accent transition-colors resize-none"
+                    className="w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-lg resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-space-xl py-space-md bg-brand-accent text-brand-surface font-display font-bold text-lg hover:bg-brand-accent-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-10 py-5 bg-slate-900 text-white font-bold text-lg hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
@@ -193,16 +188,14 @@ export function Contact() {
             </div>
 
             <div>
-              <div className="mb-space-lg">
-                <h2 className="font-display text-h2 font-bold text-brand-surface mb-space-md">
-                  Global Operations
-                </h2>
-                <p className="text-brand-secondary-light text-body text-base">
-                  Our worldwide network provides 24/7 support for your logistics needs.
-                </p>
-              </div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">
+                Global Operations
+              </h2>
+              <p className="text-lg text-slate-600 mb-8">
+                Our worldwide network provides 24/7 support for your logistics needs.
+              </p>
 
-              <div className="space-y-space-md">
+              <div className="space-y-6">
                 {locations.map((location, index) => (
                   <motion.div
                     key={location.city}
@@ -210,26 +203,33 @@ export function Contact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="p-space-xl border border-brand-border/50 bg-brand-primary/30"
+                    className="bg-white border border-slate-200 p-8"
                   >
-                    <h3 className="font-display text-h3 font-bold text-brand-surface mb-space-md">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-4">
                       {location.city}
                     </h3>
-                    <div className="space-y-space-sm text-brand-secondary-light text-sm">
-                      <div className="flex items-start gap-space-sm">
-                        <span className="text-brand-accent mt-0.5">📍</span>
+                    <div className="space-y-4 text-slate-600">
+                      <div className="flex items-start gap-3">
+                        <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
                         <span>{location.address}</span>
                       </div>
-                      <div className="flex items-start gap-space-sm">
-                        <span className="text-brand-accent mt-0.5">📞</span>
+                      <div className="flex items-start gap-3">
+                        <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
                         <span>{location.phone}</span>
                       </div>
-                      <div className="flex items-start gap-space-sm">
-                        <span className="text-brand-accent mt-0.5">✉️</span>
+                      <div className="flex items-start gap-3">
+                        <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
                         <span>{location.email}</span>
                       </div>
                     </div>
-                    <p className="text-brand-muted text-xs mt-2">
+                    <p className="text-sm text-slate-500 mt-4">
                       {location.region}
                     </p>
                   </motion.div>
@@ -240,19 +240,22 @@ export function Contact() {
         </div>
       </section>
 
-      <section className="py-space-4xl bg-gradient-to-b from-brand-primary-dark to-[#050812]">
+      {/* Support */}
+      <section className="py-24 bg-slate-900">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-display text-h1 font-bold text-brand-surface mb-space-md">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             24/7 Global Support
           </h2>
-          <p className="text-brand-secondary-light text-body text-xl mb-space-2xl">
+          <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto">
             Our support team is available around the clock to help with any logistics issues or concerns.
           </p>
           <a
             href="tel:+18005550123"
-            className="inline-flex items-center gap-space-sm text-brand-accent font-display font-semibold text-lg hover:text-brand-accent-light transition-colors"
+            className="inline-flex items-center gap-3 text-white text-2xl font-bold hover:text-slate-200 transition-colors"
           >
-            <span>📞</span>
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
             +1 (800) 555-0123
           </a>
         </div>

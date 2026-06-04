@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { Icons } from '../components/Icons'
 
 export function Footer() {
   const footerLinks = {
@@ -42,76 +41,71 @@ export function Footer() {
   }
 
   const socialLinks = [
-    { label: 'Twitter', icon: Icons.analytics, href: '#' },
-    { label: 'LinkedIn', icon: Icons.apiPlatform, href: '#' },
-    { label: 'GitHub', icon: Icons.threeBar, href: '#' },
+    { label: 'Twitter', href: '#' },
+    { label: 'LinkedIn', href: '#' },
+    { label: 'GitHub', href: '#' },
   ]
 
   const certifications = [
-    { name: 'ISO 9001', icon: Icons.enterpriseSecurity },
-    { name: 'AEO', icon: Icons.customsBrokerage },
-    { name: 'GDP', icon: Icons.coldChain },
+    'SOC 2 Type II',
+    'ISO 27001',
+    'GDPR',
   ]
 
   return (
-    <footer className="border-t-2 border-brand-border bg-brand-primary-dark">
-      <div className="container mx-auto px-4 py-space-3xl">
-        <div className="grid lg:grid-cols-6 gap-space-3xl">
+    <footer className="bg-slate-900 text-slate-300">
+      <div className="container mx-auto px-4 py-16">
+        <div className="lg:grid lg:grid-cols-6 gap-12">
           <div className="lg:col-span-2">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-space-sm mb-space-md"
-            >
-              <span className="text-brand-accent text-4xl">{Icons.logo}</span>
-              <span className="font-display text-h1 font-bold text-brand-surface">
+            <Link to="/" className="inline-flex items-center gap-3 mb-6">
+              <span className="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-slate-900 font-display text-xl">
+                M
+              </span>
+              <span className="text-2xl font-bold text-white">
                 MOVVE
               </span>
             </Link>
 
-            <p className="text-brand-secondary-light text-body text-sm leading-relaxed mb-space-lg">
-              Precision logistics for the modern world. Global reach, local expertise,
-              and data-driven insights for enterprise-level supply chain management.
+            <p className="text-slate-400 text-base leading-relaxed mb-6">
+              Precision logistics for the modern world. Global reach, local expertise, and
+              data-driven insights for enterprise-level supply chain management.
             </p>
 
-            <div className="flex flex-wrap gap-space-sm mb-space-lg">
+            <div className="flex flex-wrap gap-3 mb-6">
               {certifications.map((cert) => (
-                <div
-                  key={cert.name}
-                  className="flex items-center gap-space-sm px-space-sm py-space-xs border border-brand-border/50 bg-brand-surface/5"
-                >
-                  <span className="text-brand-accent text-sm">{cert.icon}</span>
-                  <span className="text-brand-surface text-xs font-display font-semibold">
-                    {cert.name}
-                  </span>
-                </div>
+                <span key={cert} className="px-3 py-2 bg-slate-800 border border-slate-700 rounded text-sm font-medium">
+                  {cert}
+                </span>
               ))}
             </div>
 
-            <div className="flex items-center gap-space-sm">
+            <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
-                  className="p-space-sm border border-brand-border/50 bg-brand-surface/5 text-brand-accent hover:border-brand-accent/30 transition-colors"
+                  className="w-10 h-10 bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors"
                   aria-label={social.label}
                 >
-                  <span className="text-xl">{social.icon}</span>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
                 </a>
               ))}
             </div>
           </div>
 
-          <div className="lg:col-span-4 grid md:grid-cols-2 lg:grid-cols-4 gap-space-3xl">
+          <div className="lg:col-span-4 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-display text-h3 font-bold text-brand-surface mb-space-md">
+              <h3 className="text-white font-bold mb-6">
                 {footerLinks.platform.title}
               </h3>
-              <ul className="space-y-space-sm">
+              <ul className="space-y-3">
                 {footerLinks.platform.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       to={link.href}
-                      className="text-brand-secondary-light text-sm hover:text-brand-accent transition-colors"
+                      className="hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -121,15 +115,15 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="font-display text-h3 font-bold text-brand-surface mb-space-md">
+              <h3 className="text-white font-bold mb-6">
                 {footerLinks.company.title}
               </h3>
-              <ul className="space-y-space-sm">
+              <ul className="space-y-3">
                 {footerLinks.company.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       to={link.href}
-                      className="text-brand-secondary-light text-sm hover:text-brand-accent transition-colors"
+                      className="hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -139,15 +133,15 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="font-display text-h3 font-bold text-brand-surface mb-space-md">
+              <h3 className="text-white font-bold mb-6">
                 {footerLinks.resources.title}
               </h3>
-              <ul className="space-y-space-sm">
+              <ul className="space-y-3">
                 {footerLinks.resources.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       to={link.href}
-                      className="text-brand-secondary-light text-sm hover:text-brand-accent transition-colors"
+                      className="hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -157,15 +151,15 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="font-display text-h3 font-bold text-brand-surface mb-space-md">
+              <h3 className="text-white font-bold mb-6">
                 {footerLinks.legal.title}
               </h3>
-              <ul className="space-y-space-sm">
+              <ul className="space-y-3">
                 {footerLinks.legal.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       to={link.href}
-                      className="text-brand-secondary-light text-sm hover:text-brand-accent transition-colors"
+                      className="hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -177,23 +171,23 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-brand-border bg-brand-primary-dark">
-        <div className="container mx-auto px-4 py-space-lg">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-space-md text-brand-muted text-sm">
-            <p>
-              © 2026 MOVVE. All rights reserved. Built for the modern logistics era.
+      <div className="border-t border-slate-800">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
+            <p className="text-slate-400">
+              © 2026 MOVVE. All rights reserved.
             </p>
-            <div className="flex items-center gap-space-md">
+            <div className="flex items-center gap-6">
               <a
                 href="#"
-                className="hover:text-brand-accent transition-colors"
+                className="hover:text-white transition-colors"
               >
                 Privacy Settings
               </a>
-              <span>•</span>
+              <span className="text-slate-700">•</span>
               <a
                 href="#"
-                className="hover:text-brand-accent transition-colors"
+                className="hover:text-white transition-colors"
               >
                 Cookie Preferences
               </a>
