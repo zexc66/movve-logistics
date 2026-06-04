@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Real-time shipment tracking across air, ocean, and ground. Enter your MOVVE tracking number for instant status updates.">
+<meta property="og:title" content="Track Shipment — MOVVE">
+<meta property="og:description" content="Real-time shipment tracking across air, ocean, and ground. Enter your MOVVE tracking number for instant status updates.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zexc66.github.io/movve-website/tracking.html">
+<meta property="og:site_name" content="MOVVE Logistics">
+<link rel="canonical" href="https://zexc66.github.io/movve-website/tracking.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/common.css">
+<link rel="stylesheet" href="assets/enhanced-styles.css">
+<title>Track Shipment — MOVVE</title>
+<style>
+/* Page-specific styles */
+.hero{min-height:70vh}
+.tracking-card{margin:0 auto}
+.hero-content{grid-template-columns:1fr;max-width:720px}
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<button class="back-to-top" aria-label="Back to top">↑</button>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="logo.webp" alt="MOVVE Logistics" class="logo-image"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="tracking.html">Track</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="tracking.html" class="btn btn-primary" style="padding:10px 22px;font-size:.875rem">Track Shipment</a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<!-- Mobile menu -->
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="tracking.html">Track</a>
+  <a href="careers.html">Careers</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- Tracking Hero -->
+<main id="main-content">
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text reveal">
+        <div class="section-label" style="justify-content:flex-start"><div class="three-bar"><span></span><span></span><span></span></div><span class="label-caps" style="color:rgba(255,255,255,.5)">MOVVE</span></div>
+        <h1 style="color:var(--color-on-primary)">Track your shipment</h1>
+        <p class="body-lg" style="color:rgba(255,255,255,.7);max-width:680px">Live visibility across air, ocean, and ground. Enter your MOVVE tracking number for instant status updates.</p>
+
+        <div style="display:flex;justify-content:center">
+          <div class="tracking-card">
+            <div class="tracking-card-header">
+              <span class="label-caps">Live Tracking</span>
+              <div class="live-dot"></div>
+            </div>
+
+            <div class="tracking-step done">
+              <div class="tracking-dot done"></div>
+              <div class="tracking-info">
+                <h4>Order Confirmed</h4>
+                <p>—</p>
+              </div>
+            </div>
+            <div class="tracking-step done">
+              <div class="tracking-dot done"></div>
+              <div class="tracking-info">
+                <h4>Departed Origin Port</h4>
+                <p>—</p>
+              </div>
+            </div>
+            <div class="tracking-step active">
+              <div class="tracking-dot active"></div>
+              <div class="tracking-info">
+                <h4>In Transit</h4>
+                <p>Enter a tracking number to begin</p>
+              </div>
+            </div>
+            <div class="tracking-step pending">
+              <div class="tracking-dot pending"></div>
+              <div class="tracking-info">
+                <h4>Last Mile Delivery</h4>
+                <p>—</p>
+              </div>
+            </div>
+
+            <div class="tracking-input" id="trackingInputWrap">
+              <input type="text" id="trackingNumberInput" placeholder="Enter tracking number..." autocomplete="off" inputmode="text">
+              <button class="btn btn-primary track-submit" type="button">Track</button>
+            </div>
+
+            <div class="tracking-result" id="trackingResult" aria-live="polite" aria-atomic="true">
+              <div class="card">
+                <div class="tracking-step done" style="padding-top:0;margin-top:0">
+                  <div class="tracking-dot done" aria-hidden="true"></div>
+                  <div class="tracking-info">
+                    <h4 id="trackingResultHeader">Shipment status</h4>
+                    <p id="trackingResultSubheader">Enter a tracking number to see updates.</p>
+                  </div>
+                </div>
+
+                <div class="tracking-progress" id="trackingProgress" aria-hidden="true">
+                  <div class="tracking-progress-step done">
+                    <div class="tracking-progress-dot">1</div>
+                    <div class="tracking-progress-label">Confirmed</div>
+                  </div>
+                  <div class="tracking-progress-step done">
+                    <div class="tracking-progress-dot">2</div>
+                    <div class="tracking-progress-label">Origin</div>
+                  </div>
+                  <div class="tracking-progress-step active">
+                    <div class="tracking-progress-dot">3</div>
+                    <div class="tracking-progress-label">In Transit</div>
+                  </div>
+                  <div class="tracking-progress-step pending">
+                    <div class="tracking-progress-dot">4</div>
+                    <div class="tracking-progress-label">Last Mile</div>
+                  </div>
+                </div>
+
+                <div style="margin-top:var(--space-md);display:flex;gap:var(--space-sm);flex-wrap:wrap;align-items:center">
+                  <button class="btn btn-secondary" id="trackingClearBtn" type="button">Clear</button>
+                  <span id="trackingHint" class="label-caps" style="margin:0;letter-spacing:.08em;opacity:.85">Demo UI (no backend wired)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid reveal">
+      <div class="footer-brand"><a href="index.html" class="nav-logo"><img src="logo.webp" alt="MOVVE Logistics" class="logo-image"></a><p class="body-sm">Freight forwarding and logistics across 140+ countries. The Power Of Precision.</p></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Air Freight</a></li><li><a href="services.html">Ocean Freight</a></li><li><a href="services.html">Ground Transport</a></li><li><a href="services.html">Warehousing</a></li><li><a href="services.html">Customs</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="#">Press</a></li><li><a href="#">Sustainability</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul><li><a href="tracking.html">Track Shipment</a></li><li><a href="#">API Docs</a></li><li><a href="#">Rate Calculator</a></li><li><a href="#">Help Center</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+    </div>
+    <div class="footer-bottom reveal"><p class="body-sm">© 2026 MOVVE Logistics. All rights reserved.</p><div class="footer-social"><a href="#">in</a><a href="#">𝕏</a><a href="#">▶</a><a href="#">◻</a></div></div>
+  </div>
+</footer>
+
+<script src="assets/common.js"></script>
+<script>
+(function(){
+  const input=document.getElementById('trackingNumberInput');
+  const clearBtn=document.getElementById('trackingClearBtn');
+  const trackBtn=document.querySelector('.tracking-input .track-submit');
+  const result=document.getElementById('trackingResult');
+  const header=document.getElementById('trackingResultHeader');
+  const subheader=document.getElementById('trackingResultSubheader');
+  const progress=document.getElementById('trackingProgress');
+  const prefersReducedMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function normalize(s){
+    return (s||'').toString().trim().toUpperCase().replace(/\s+/g,'');
+  }
+
+  function setSteps(step){
+    if(!progress)return;
+    const steps=progress.querySelectorAll('.tracking-progress-step');
+    steps.forEach((el,idx)=>{
+      const i=idx+1;
+      el.classList.remove('done','active','pending');
+      if(i<step)el.classList.add('done');
+      else if(i===step)el.classList.add('active');
+      else el.classList.add('pending');
+    });
+  }
+
+  function showDemoStatus(tracking){
+    const lastChar=tracking.slice(-1);
+    const digit=parseInt(lastChar,10);
+    const stage=Number.isFinite(digit)?((digit%4)+1):3;
+
+    const stagesCopy={
+      1:{h:'Shipment confirmed',s:'We received your shipment details and are preparing the first handoff.'},
+      2:{h:'Origin port update',s:'The shipment has been scanned at origin and is awaiting carrier departure.'},
+      3:{h:'In transit',s:'Your shipment is on-route. Estimated time remaining will update as it moves through hubs.'},
+      4:{h:'Last mile delivery',s:'Out for delivery soon. Final ETA depends on local handling and customs processing.'}
+    };
+
+    const copy=stagesCopy[stage]||stagesCopy[3];
+    header.textContent=copy.h;
+    subheader.textContent=`Tracking: ${tracking} • Demo preview (no backend)`;
+
+    if(result&&result.scrollIntoView){
+      result.scrollIntoView({behavior:prefersReducedMotion?'auto':'smooth',block:'nearest'});
+    }
+    setSteps(stage);
+    result&&result.classList.add('active');
+  }
+
+  function setValidationError(msg){
+    if(!header||!subheader)return;
+    header.textContent='Please check your tracking number';
+    subheader.textContent=msg;
+    if(result){
+      result.classList.add('active');
+    }
+  }
+
+  function validateAndTrack(){
+    const tracking=normalize(input&&input.value);
+    if(!tracking){
+      setValidationError('Enter a tracking number to continue.');
+      input&&input.focus&&input.focus();
+      return;
+    }
+
+    if(!/^[A-Z0-9-]{6,}$/.test(tracking)){
+      setValidationError('Use 6+ characters (letters, numbers, hyphens). Example: HKG-AMS-8842');
+      input&&input.focus&&input.focus();
+      return;
+    }
+
+    showDemoStatus(tracking);
+  }
+
+  if(trackBtn){
+    trackBtn.addEventListener('click',(e)=>{
+      e.preventDefault();
+      validateAndTrack();
+    });
+  }
+
+  if(input){
+    input.addEventListener('keypress',(e)=>{
+      if(e.key==='Enter')validateAndTrack();
+    });
+  }
+
+  if(clearBtn){
+    clearBtn.addEventListener('click',()=>{
+      if(input)input.value='';
+      if(header)header.textContent='Shipment status';
+      if(subheader)subheader.textContent='Enter a tracking number to see updates.';
+      if(progress)setSteps(3);
+      if(result){
+        result.classList.remove('active');
+      }
+      input&&input.focus&&input.focus();
+    });
+  }
+})();
+</script>
+</body>
+</html>
