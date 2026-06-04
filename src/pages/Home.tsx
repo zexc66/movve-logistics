@@ -106,53 +106,51 @@ export function Home() {
     <>
       <Hero />
 
-      {/* Trust Bar - Enterprise Credibility */}
-      <section className="py-space-xl bg-brand-surface border-b border-brand-border">
+      <section className="py-16 bg-brand-surface border-b border-brand-border">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-space-md">
-            <div className="flex flex-wrap items-center gap-space-md text-brand-muted text-sm">
-              <div className="flex items-center gap-space-sm">
-                <span className="text-brand-success">✓</span>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex flex-wrap items-center gap-6 text-brand-muted text-sm">
+              <div className="flex items-center gap-2">
+                <span className="text-brand-success text-green-500">✓</span>
                 <span>SOC 2 Type II Certified</span>
               </div>
               <div className="w-px h-4 bg-brand-border"></div>
-              <div className="flex items-center gap-space-sm">
-                <span className="text-brand-success">✓</span>
+              <div className="flex items-center gap-2">
+                <span className="text-brand-success text-green-500">✓</span>
                 <span>ISO 27001 Compliant</span>
               </div>
               <div className="w-px h-4 bg-brand-border"></div>
-              <div className="flex items-center gap-space-sm">
-                <span className="text-brand-success">✓</span>
+              <div className="flex items-center gap-2">
+                <span className="text-brand-success text-green-500">✓</span>
                 <span>GDPR Ready</span>
               </div>
             </div>
-            <Link to="/contact" className="px-space-md py-space-sm bg-brand-primary text-brand-surface text-sm font-display font-semibold hover:bg-brand-primaryLight transition-colors">
+            <Link to="/contact" className="px-6 py-3 bg-brand-primary text-brand-surface text-sm font-display font-semibold hover:bg-brand-primaryLight transition-colors">
               Get Started
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Client Logos - Professional Presentation */}
-      <section className="py-space-3xl">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-space-xl">
-            <p className="text-brand-muted uppercase tracking-wider text-sm font-display font-semibold mb-space-md">
+          <div className="text-center mb-16">
+            <p className="text-brand-muted uppercase tracking-wider text-xs font-display font-semibold mb-4">
               Trusted by industry leaders
             </p>
-            <h2 className="font-display text-h2 font-bold text-brand-text">
+            <h2 className="font-display text-3xl font-bold text-brand-text mb-4">
               Powering Fortune 500 Supply Chains
             </h2>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-space-xl opacity-40">
+          <div className="flex flex-wrap justify-center items-center gap-12 opacity-40">
             {clients.map((client, index) => (
               <motion.span
                 key={client}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="font-display text-h3 font-bold text-brand-muted hover:text-brand-accent hover:opacity-100 transition-all"
+                className="font-display text-2xl font-bold text-brand-muted hover:text-brand-accent hover:opacity-100 transition-all"
               >
                 {client}
               </motion.span>
@@ -161,26 +159,25 @@ export function Home() {
         </div>
       </section>
 
-      {/* Capabilities Section - Distinctive Layout */}
-      <section className="py-space-4xl bg-gradient-to-b from-brand-surface to-brand-surfaceSubtle">
+      <section className="py-20 bg-gradient-to-b from-brand-surface to-gray-100">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-space-3xl">
-            <div className="inline-flex items-center justify-center gap-space-sm mb-space-md">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center gap-3 mb-6">
               <div className="w-12 h-px bg-brand-accent"></div>
-              <span className="text-brand-accent uppercase tracking-wider text-sm font-display font-semibold">
+              <span className="text-brand-accent uppercase tracking-wider text-xs font-display font-semibold">
                 Core Capabilities
               </span>
               <div className="w-12 h-px bg-brand-accent"></div>
             </div>
-            <h2 className="font-display text-h1 font-bold text-brand-text mb-space-md">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-brand-text mb-4">
               Enterprise-grade logistics infrastructure
             </h2>
-            <p className="text-brand-muted text-body text-xl max-w-3xl mx-auto">
+            <p className="text-brand-muted font-body text-lg max-w-3xl mx-auto">
               Built for scale, designed for precision. Our platform handles complexity so you can focus on business growth.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -188,15 +185,15 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-space-lg border border-brand-border hover:border-brand-accent/30 transition-all group"
+                className="p-8 border border-brand-border hover:border-brand-accent/30 transition-all bg-white"
               >
-                <h3 className="font-display text-h3 font-bold text-brand-text mb-space-sm">
+                <h3 className="font-display text-xl font-bold text-brand-text mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-brand-muted text-sm font-semibold uppercase tracking-wider mb-space-md">
+                <p className="text-brand-muted text-xs font-semibold uppercase tracking-wider mb-4 text-brand-accent">
                   {feature.metrics}
                 </p>
-                <p className="text-brand-muted text-body leading-relaxed">
+                <p className="text-brand-muted font-body leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
@@ -205,29 +202,28 @@ export function Home() {
         </div>
       </section>
 
-      {/* Services Section - Asymmetric Layout */}
-      <section className="py-space-4xl bg-brand-primary">
+      <section className="py-20 bg-brand-primary">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-space-3xl items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="mb-space-lg flex items-center gap-space-sm">
+              <div className="mb-6 flex items-center gap-3">
                 <div className="w-12 h-px bg-brand-accent"></div>
-                <span className="text-brand-accent uppercase tracking-wider text-sm font-display font-semibold">
+                <span className="text-brand-accent uppercase tracking-wider text-xs font-display font-semibold">
                   Services
                 </span>
                 <div className="w-12 h-px bg-brand-accent"></div>
               </div>
 
-              <h2 className="font-display font-hero font-bold text-brand-surface mb-space-md">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-brand-surface mb-6">
                 Comprehensive logistics solutions for every supply chain need
               </h2>
-              <p className="text-brand-secondaryLight text-body text-xl leading-relaxed mb-space-xl">
+              <p className="text-brand-secondaryLight font-body text-lg leading-relaxed mb-8">
                 From origin to final delivery, we handle every link in your supply chain with precision and care. Our end-to-end services scale with your business.
               </p>
 
               <Link
                 to="/services"
-                className="text-brand-accent font-display font-semibold inline-flex items-center gap-space-sm group"
+                className="text-brand-accent font-display font-semibold inline-flex items-center gap-2 group"
               >
                 View All Services
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
@@ -235,7 +231,7 @@ export function Home() {
             </div>
 
             <div>
-              <div className="grid md:grid-cols-2 gap-space-lg">
+              <div className="grid md:grid-cols-2 gap-6">
                 {services.map((service, index) => (
                   <motion.div
                     key={service.title}
@@ -243,15 +239,15 @@ export function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.08 }}
-                    className="p-space-lg border border-brand-border/50 hover:border-brand-accent/30 transition-all group"
+                    className="p-6 border border-brand-border/50 hover:border-brand-accent/30 transition-all bg-brand-surface/5"
                   >
-                    <h3 className="font-display text-h3 font-bold text-brand-surface mb-space-sm">
+                    <h3 className="font-display text-lg font-bold text-brand-surface mb-3">
                       {service.title}
                     </h3>
-                    <p className="text-brand-muted text-body text-sm leading-relaxed mb-space-md">
+                    <p className="text-brand-muted font-body text-sm leading-relaxed mb-4">
                       {service.description}
                     </p>
-                    <p className="text-brand-muted text-xs font-semibold uppercase tracking-wider">
+                    <p className="text-brand-muted text-xs font-semibold uppercase tracking-wider text-brand-accent">
                       {service.details}
                     </p>
                   </motion.div>
@@ -262,26 +258,25 @@ export function Home() {
         </div>
       </section>
 
-      {/* Testimonials - Commanding Presentation */}
-      <section className="py-space-4xl bg-gradient-to-b from-brand-primary to-brand-primaryDark">
+      <section className="py-20 bg-gradient-to-b from-brand-primary to-brand-primaryDark">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-space-3xl">
-            <div className="inline-flex items-center justify-center gap-space-sm mb-space-md">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center gap-3 mb-6">
               <div className="w-12 h-px bg-brand-accent"></div>
-              <span className="text-brand-accent uppercase tracking-wider text-sm font-display font-semibold">
+              <span className="text-brand-accent uppercase tracking-wider text-xs font-display font-semibold">
                 Client Success
               </span>
               <div className="w-12 h-px bg-brand-accent"></div>
             </div>
-            <h2 className="font-display text-h1 font-bold text-brand-surface mb-space-md">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-brand-surface mb-4">
               Proven results across industries
             </h2>
-            <p className="text-brand-secondaryLight text-body text-xl max-w-3xl mx-auto">
+            <p className="text-brand-secondaryLight font-body text-lg max-w-3xl mx-auto">
               See how Fortune 500 companies transform their supply chains with MOVVE precision.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-space-xl max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <motion.blockquote
                 key={testimonial.name}
@@ -289,15 +284,15 @@ export function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-space-lg border border-brand-border bg-brand-primary/30 relative"
+                className="p-8 border border-brand-border bg-brand-primary/30 relative"
               >
                 <div className="absolute -top-3 -left-3 w-6 h-6 bg-brand-primary">
                   <span className="text-brand-accent text-2xl font-display">"</span>
                 </div>
-                <p className="text-brand-surface font-body text-lg leading-relaxed mb-space-lg italic">
+                <p className="text-brand-surface font-body text-lg leading-relaxed mb-6 italic">
                   {testimonial.quote}
                 </p>
-                <div className="flex items-center gap-space-sm">
+                <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-brand-accent rounded-full flex items-center justify-center text-brand-surface font-display font-bold">
                     {testimonial.initials}
                   </div>
@@ -316,8 +311,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* CTA Section - Commanding Presence */}
-      <section className="py-space-4xl bg-brand-accent relative overflow-hidden">
+      <section className="py-20 bg-brand-accent relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0" style={{
             backgroundImage: `
@@ -328,23 +322,23 @@ export function Home() {
         </div>
 
         <div className="relative container mx-auto px-4 text-center">
-          <h2 className="font-display font-hero font-bold text-brand-surface mb-space-md">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-brand-surface mb-6">
             Ready to transform your supply chain?
           </h2>
-          <p className="text-brand-surface text-body text-xl max-w-3xl mx-auto mb-space-2xl">
+          <p className="text-brand-surface font-body text-lg max-w-3xl mx-auto mb-12">
             Join 500+ enterprise companies that trust MOVVE with their most critical logistics operations.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-space-md">
+          <div className="flex flex-wrap justify-center gap-6">
             <Link
               to="/contact"
-              className="px-space-xl py-space-md bg-brand-surface text-brand-primary font-display font-bold text-lg hover:bg-brand-surfaceSubtle transition-colors"
+              className="px-8 py-4 bg-brand-surface text-brand-primary font-display font-bold text-lg hover:bg-brand-surfaceSubtle transition-colors"
             >
               Request Demo
             </Link>
             <Link
               to="/tracking"
-              className="px-space-xl py-space-md bg-brand-accentDark text-brand-surface border-2 border-brand-surface/30 font-display font-bold text-lg hover:bg-brand-accent transition-colors"
+              className="px-8 py-4 bg-brand-accentDark text-brand-surface border-2 border-brand-surface/30 font-display font-bold text-lg hover:bg-brand-accent transition-colors"
             >
               Track Shipment
             </Link>
