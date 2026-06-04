@@ -74,7 +74,7 @@ export function Home() {
               <div className="absolute -inset-1 border border-slate-200 rounded-2xl" />
               <Link
                 to="/contact"
-                className="relative block px-8 py-6 bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors duration-300 rounded-xl text-center"
+                className="relative block px-8 py-6 bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors duration-300 rounded-xl text-center cursor-pointer"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 Get Started

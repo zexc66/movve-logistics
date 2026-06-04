@@ -32,8 +32,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <>
       {/* Double-bezel navigation */}
       <motion.nav
-        style={{ opacity: navOpacity, backdropFilter: `blur(${navBlur}px)` }}
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        style={{ opacity: navOpacity, backdropFilter: `blur(${navBlur}px)`, zIndex: 'var(--z-fixed)' }}
+        className="fixed top-0 left-0 right-0 transition-all duration-300"
       >
         <div className="container mx-auto px-4">
           {/* Outer bezel */}
@@ -45,7 +45,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex items-center justify-between">
                 <Link
                   to="/"
-                  className="flex items-center gap-3 group"
+                  className="flex items-center gap-3 group cursor-pointer"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   {/* Logo with double-bezel */}
@@ -66,7 +66,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     <Link
                       key={link.path}
                       to={link.path}
-                      className={`text-sm font-medium transition-colors duration-200 ${
+                      className={`text-sm font-medium transition-colors duration-200 cursor-pointer ${
                         location.pathname === link.path
                           ? 'text-white'
                           : 'text-slate-400 hover:text-white'
@@ -78,7 +78,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   ))}
                   <Link
                     to="/contact"
-                    className="px-6 py-3 bg-white text-slate-900 font-semibold hover:bg-slate-50 transition-colors duration-300 rounded-lg"
+                    className="px-6 py-3 bg-white text-slate-900 font-semibold hover:bg-slate-50 transition-colors duration-300 rounded-lg cursor-pointer"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     Get Started
@@ -144,7 +144,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   <Link
                     to={link.path}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`text-2xl font-medium transition-colors py-4 px-8 rounded-lg ${
+                    className={`text-2xl font-medium transition-colors py-4 px-8 rounded-lg cursor-pointer ${
                       location.pathname === link.path
                         ? 'text-white bg-slate-800'
                         : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
@@ -169,7 +169,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Link
                   to="/contact"
                   onClick={() => setIsMenuOpen(false)}
-                  className="px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg"
+                  className="px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg cursor-pointer"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   Get Started
