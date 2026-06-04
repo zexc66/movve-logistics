@@ -63,30 +63,32 @@ export function Tracking() {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="tracking-number" className="block text-sm font-semibold text-slate-700 mb-3">
-                  Tracking Number
-                </label>
-                <div className="flex gap-4">
-                  <input
-                    type="text"
-                    id="tracking-number"
-                    value={trackingNumber}
-                    onChange={(e) => setTrackingNumber(e.target.value)}
-                    placeholder="Enter tracking number (e.g., MOVVE123456)"
-                    className="flex-1 px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-lg text-lg"
-                  />
-                  <button
-                    type="submit"
-                    disabled={!trackingNumber.trim()}
-                    className="px-10 py-4 bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
-                  >
-                    Track
-                  </button>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="tracking-number" className="block text-sm font-semibold text-slate-700 mb-3">
+                    Tracking Number
+                  </label>
+                  <div className="flex gap-4">
+                    <input
+                      type="text"
+                      id="tracking-number"
+                      value={trackingNumber}
+                      onChange={(e) => setTrackingNumber(e.target.value)}
+                      placeholder="Enter tracking number (e.g., MOVVE123456)"
+                      disabled={trackingStatus === 'processing'}
+                      className="flex-1 px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 disabled:bg-slate-100 disabled:cursor-not-allowed disabled:border-slate-300 transition-colors duration-200 rounded-lg text-lg"
+                    />
+                    <button
+                      type="submit"
+                      disabled={!trackingNumber.trim() || trackingStatus === 'processing'}
+                      className="px-10 py-4 bg-slate-900 text-white font-semibold hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-slate-400 transition-colors duration-200 rounded-lg"
+                    >
+                      {trackingStatus === 'processing' ? 'Tracking...' : 'Track'}
+                    </button>
+                  </div>
+                  <p className="mt-2 text-xs text-slate-500">Example: MOVVE123456 or test</p>
                 </div>
-              </div>
-            </form>
+              </form>
 
             {/* Processing State */}
             {trackingStatus === 'processing' && (

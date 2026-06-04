@@ -126,8 +126,10 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="John Smith"
-                    className="w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-lg"
+                    disabled={isSubmitting}
+                    className="w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 disabled:bg-slate-100 disabled:cursor-not-allowed disabled:border-slate-300 transition-colors duration-200 rounded-lg"
                   />
+                  <p className="mt-2 text-xs text-slate-500">Your full name for personal communication</p>
                 </div>
 
                 <div>
@@ -142,8 +144,10 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="john@company.com"
-                    className="w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-lg"
+                    disabled={isSubmitting}
+                    className="w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 disabled:bg-slate-100 disabled:cursor-not-allowed disabled:border-slate-300 transition-colors duration-200 rounded-lg"
                   />
+                  <p className="mt-2 text-xs text-slate-500">We'll never share your email with anyone</p>
                 </div>
 
                 <div>
@@ -157,8 +161,10 @@ export function Contact() {
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Your Company"
-                    className="w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-lg"
+                    disabled={isSubmitting}
+                    className="w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 disabled:bg-slate-100 disabled:cursor-not-allowed disabled:border-slate-300 transition-colors duration-200 rounded-lg"
                   />
+                  <p className="mt-2 text-xs text-slate-500">Optional - helps us understand your needs better</p>
                 </div>
 
                 <div>
@@ -173,14 +179,16 @@ export function Contact() {
                     required
                     rows={6}
                     placeholder="Tell us about your logistics needs..."
-                    className="w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors rounded-lg resize-none"
+                    disabled={isSubmitting}
+                    className="w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 disabled:bg-slate-100 disabled:cursor-not-allowed disabled:border-slate-300 transition-colors duration-200 rounded-lg resize-none"
                   />
+                  <p className="mt-2 text-xs text-slate-500">Minimum 10 characters required</p>
                 </div>
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-10 py-5 bg-slate-900 text-white font-bold text-lg hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
+                  disabled={isSubmitting || !formData.email || !formData.name || !formData.message}
+                  className="w-full px-10 py-5 bg-slate-900 text-white font-bold text-lg hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-slate-400 transition-colors duration-200 rounded-lg"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>

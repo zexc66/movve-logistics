@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily: {
         display: ['Geist Variable', 'Clash Display', 'Satoshi', 'system-ui', 'sans-serif'],
-        body: ['Satoshi', 'Inter Tight', 'system-ui', 'sans-serif'],
+        body: ['Satoshi', 'system-ui', 'sans-serif'],
         sans: ['Geist Variable', 'Clash Display', 'Satoshi', 'system-ui', 'sans-serif'],
       },
       colors: {
@@ -23,13 +23,21 @@ export default {
           700: '#334155',
           800: '#1e293b',
           900: '#0f172a',
+          950: '#020617',
         },
         emerald: {
+          400: '#34d399',
           500: '#10b981',
           600: '#059669',
         },
-        indigo: {
-          500: '#6366f1',
+        surface: {
+          light: '#ffffff',
+          dark: '#050812',
+        },
+        text: {
+          primary: '#0f172a',
+          secondary: '#475569',
+          inverted: '#f8fafc',
         },
       },
       animation: {

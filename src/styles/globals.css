@@ -5,11 +5,11 @@
 @tailwind utilities;
 
 :root {
-  /* Premium Typography - Premium Fonts */
+  /* Premium Typography - No Inter allowed per taste-skill */
   --font-display: 'Geist Variable, Clash Display, Satoshi, system-ui, sans-serif';
-  --font-body: 'Satoshi, Inter Tight, system-ui, sans-serif';
+  --font-body: 'Satoshi, system-ui, sans-serif';
 
-  /* Editorial Luxury Typography Scale */
+  /* Typography Scale - Deterministic per taste-skill */
   --text-hero: clamp(3.5rem, 8vw, 6rem);
   --text-h1: clamp(2.5rem, 5vw, 4rem);
   --text-h2: clamp(2rem, 4vw, 3rem);
@@ -131,10 +131,24 @@ img {
   opacity: 0.25;
 }
 
-/* Premium Focus States */
+/* Premium Focus States - WCAG AA compliant */
 *:focus-visible {
-  outline: 2px solid #6366f1;
-  outline-offset: 2px;
+  outline: 2px solid #10b981;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* High contrast focus states for light backgrounds */
+*:focus-visible {
+  outline: 2px solid #059669;
+}
+
+/* Dark mode focus states */
+@media (prefers-color-scheme: dark) {
+  *:focus-visible {
+    outline: 2px solid #10b981;
+    outline-offset: 3px;
+  }
 }
 
 /* Smooth Scrolling */
@@ -171,10 +185,10 @@ img {
   background: #475569;
 }
 
-/* Premium Text Selection */
+/* Premium Text Selection - WCAG AA compliant */
 ::selection {
-  background: #6366f1;
-  color: #ffffff;
+  background: rgba(16, 185, 129, 0.2);
+  color: #050812;
 }
 
 /* Premium Loading States */
@@ -226,18 +240,21 @@ img {
   font-size: var(--text-body);
   line-height: 1.7;
   letter-spacing: 0.005em;
+  max-width: 75ch;
 }
 
 .small-text {
   font-size: var(--text-small);
   line-height: 1.6;
   letter-spacing: 0.01em;
+  max-width: 85ch;
 }
 
 .xs-text {
   font-size: var(--text-xs);
   line-height: 1.5;
   letter-spacing: 0.015em;
+  max-width: 90ch;
 }
 
 /* Premium Spacing Utilities */
