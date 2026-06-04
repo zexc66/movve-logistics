@@ -88,7 +88,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 {/* Mobile menu button */}
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="md:hidden text-slate-400 hover:text-white transition-colors duration-200 p-2"
+                  className="md:hidden text-slate-400 hover:text-white transition-colors duration-200 p-3"
                   aria-label="Toggle menu"
                 >
                   <motion.svg
@@ -144,10 +144,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   <Link
                     to={link.path}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`text-2xl font-medium transition-colors ${
+                    className={`text-2xl font-medium transition-colors py-4 px-8 rounded-lg ${
                       location.pathname === link.path
-                        ? 'text-white'
-                        : 'text-slate-400 hover:text-white'
+                        ? 'text-white bg-slate-800'
+                        : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
                     }`}
                     style={{ fontFamily: 'var(--font-display)' }}
                   >

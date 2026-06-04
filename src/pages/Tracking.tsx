@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 export function Tracking() {
+  const navigate = useNavigate()
   const [trackingNumber, setTrackingNumber] = useState('')
   const [trackingStatus, setTrackingStatus] = useState<'idle' | 'processing' | 'found' | 'not-found'>('idle')
   const [shipmentData, setShipmentData] = useState<{
@@ -40,6 +42,10 @@ export function Tracking() {
         setShipmentData(null)
       }
     }, 2000)
+  }
+
+  const handleContactSupport = () => {
+    navigate('/contact?subject=tracking-inquiry')
   }
 
   return (
@@ -227,7 +233,10 @@ export function Tracking() {
                 </p>
               </div>
               <div className="mt-6">
-                <button className="px-8 py-3 bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors rounded-lg">
+                <button
+                  onClick={handleContactSupport}
+                  className="px-8 py-3 bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                >
                   Contact Support
                 </button>
               </div>
