@@ -62,9 +62,16 @@ export default {
       backdropBlur: {
         xs: '2px',
       },
+      transitionDuration: {
+        '200': '200ms',
+        '300': '300ms',
+      },
       transitionTimingFunction: {
         'spring': 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
         'spring-smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        'quart': 'cubic-bezier(0.25, 1, 0.5, 1)',
+        'quint': 'cubic-bezier(0.23, 1, 0.32, 1)',
+        'expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },
