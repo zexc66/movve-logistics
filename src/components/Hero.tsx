@@ -1,208 +1,114 @@
 import { Link } from 'react-router-dom'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { Icons } from '../components/Icons'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
 
 export function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  })
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95])
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, 50])
-
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-gradient-to-br from-brand-primary via-brand-primary-dark to-[#050812] overflow-hidden">
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0">
+    <section className="relative min-h-screen bg-[#0a0f1a] overflow-hidden">
+      {/* Data visualization background */}
+      <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0" style={{
           backgroundImage: `
-            radial-gradient(circle at 20% 50%, oklch(0.55 0.18 25 / 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, oklch(0.55 0.18 25 / 0.05) 0%, transparent 40%),
-            radial-gradient(circle at 40% 80%, oklch(0.55 0.18 25 / 0.06) 0%, transparent 45%)
-          `
-        }} />
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(90deg, transparent 0%, oklch(0.55 0.18 25 / 0.03) 50%, transparent 100%),
-            linear-gradient(0deg, transparent 0%, oklch(0.55 0.18 25 / 0.02) 100%)
-          `
+            linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px'
         }} />
       </div>
 
-      <motion.div
-        style={{ opacity, scale, y }}
-        className="relative container mx-auto px-4 py-24 min-h-screen flex items-center"
-      >
-        <div className="max-w-5xl">
-          {/* Premium Badge */}
+      <div className="relative container mx-auto px-4 py-20 lg:py-32 min-h-screen flex items-center">
+        <div className="max-w-4xl">
+          {/* Enterprise status indicator */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="mb-12 flex items-center gap-6"
           >
-            <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-brand-accent/10 to-brand-accent/5 border border-brand-accent/20 px-5 py-2.5 rounded-full backdrop-blur-sm">
-              <div className="w-2 h-2 bg-brand-accent rounded-full animate-pulse" />
-              <span className="text-brand-accent font-display font-semibold tracking-wider uppercase text-xs">
-                Enterprise Logistics Platform
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full" />
+              <span className="text-slate-400 text-sm font-medium tracking-wide uppercase">
+                Operations Active
               </span>
             </div>
+            <div className="h-px w-16 bg-slate-800" />
+            <span className="text-slate-500 text-sm">
+              Enterprise Logistics Platform
+            </span>
           </motion.div>
 
-          {/* Premium Headline */}
-          <motion.div
+          {/* Primary headline */}
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-8"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-none tracking-tight mb-8"
           >
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-brand-surface leading-tight tracking-tight mb-6">
-              <span className="bg-gradient-to-r from-brand-surface via-brand-accent-light to-brand-accent bg-clip-text text-transparent">
-                Scale
-              </span>{' '}
-              without{' '}
-              <span className="bg-gradient-to-r from-brand-secondary-light to-brand-accent bg-clip-text text-transparent">
-                sacrificing
-              </span>{' '}
-              <span className="relative inline-block">
-                <span className="relative z-10 bg-gradient-to-r from-brand-accent to-brand-accent-light bg-clip-text text-transparent">
-                  precision
-                </span>
-                <div className="absolute -bottom-1 left-0 w-full h-3 bg-gradient-to-r from-brand-accent/50 to-brand-accent/30 -z-0 rounded-sm" />
-              </span>
-            </h1>
-          </motion.div>
+            Precision at
+            <span className="block text-slate-300">
+              Scale
+            </span>
+          </motion.h1>
 
-          {/* Premium Value Proposition */}
+          {/* Value proposition */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-brand-secondary-light font-body text-lg md:text-xl max-w-3xl leading-relaxed mb-12"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl text-slate-400 leading-relaxed mb-12 max-w-2xl"
           >
-            2.4 million annual shipments. 140 countries. 98.6% on-time delivery.
-            <span className="block mt-2 text-brand-muted/80">
-              Enterprise-grade logistics infrastructure that scales with ambition.
-            </span>
+            2.4 million shipments annually. 140 countries. Enterprise infrastructure that
+            transforms complexity into operational excellence.
           </motion.p>
 
-          {/* Premium Tracking Interface */}
+          {/* Primary action */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mb-16"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 mb-20"
           >
-            <div className="max-w-2xl mb-8">
-              <div className="mb-5 flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <span className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-brand-muted text-xs uppercase tracking-wider font-semibold">
-                    Live Tracking System
-                  </span>
-                </div>
-                <span className="text-brand-muted text-xs">
-                  Track in seconds
-                </span>
-              </div>
-
-              <div className="relative group">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-lg blur opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
-                <div className="relative flex gap-3">
-                  <input
-                    type="text"
-                    placeholder="Enter tracking number..."
-                    className="flex-1 px-6 py-4 bg-brand-surface border-2 border-brand-border/50 text-brand-text font-body text-base placeholder-brand-muted/60 focus:outline-none focus:border-brand-accent/50 transition-all duration-300 rounded-lg"
-                    aria-label="Enter tracking number"
-                  />
-                  <Link
-                    to="/tracking"
-                    className="px-8 py-4 bg-gradient-to-r from-brand-accent to-brand-accent-light text-brand-surface font-display font-bold text-base hover:shadow-lg hover:shadow-brand-accent/25 transition-all duration-300 rounded-lg flex items-center space-x-2"
-                  >
-                    <span>Track</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center space-x-8 md:space-x-12 text-brand-muted text-xs">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                className="flex items-center space-x-2 group cursor-pointer"
-              >
-                <span className="text-brand-accent group-hover:scale-110 transition-transform duration-300">
-                  {Icons.tracking}
-                </span>
-                <span className="group-hover:text-brand-accent transition-colors duration-300">Real-time visibility</span>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.1 }}
-                className="flex items-center space-x-2 group cursor-pointer"
-              >
-                <span className="text-brand-accent group-hover:scale-110 transition-transform duration-300">
-                  {Icons.analytics}
-                </span>
-                <span className="group-hover:text-brand-accent transition-colors duration-300">Predictive ETAs</span>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2 }}
-                className="flex items-center space-x-2 group cursor-pointer"
-              >
-                <span className="text-brand-accent group-hover:scale-110 transition-transform duration-300">
-                  {Icons.aiRouting}
-                </span>
-                <span className="group-hover:text-brand-accent transition-colors duration-300">AI optimization</span>
-              </motion.div>
-            </div>
+            <Link
+              to="/contact"
+              className="px-8 py-4 bg-white text-slate-900 font-semibold hover:bg-slate-50 transition-colors rounded-lg inline-flex items-center justify-center gap-2"
+            >
+              <span>Request Partnership</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
+            <Link
+              to="/tracking"
+              className="px-8 py-4 bg-slate-800/50 text-slate-300 font-semibold hover:bg-slate-800 transition-colors border border-slate-700 rounded-lg inline-flex items-center justify-center"
+            >
+              Track Shipment
+            </Link>
           </motion.div>
 
-          {/* Premium Stats Grid */}
+          {/* Enterprise metrics */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-slate-800"
           >
             {[
-              { value: '2.4M', label: 'Annual Shipments', delay: 1.1 },
-              { value: '140+', label: 'Countries', delay: 1.2 },
-              { value: '98.6%', label: 'On-Time Delivery', delay: 1.3 },
-              { value: '500+', label: 'Enterprise Clients', delay: 1.4 },
+              { value: '2.4M', label: 'Annual Shipments' },
+              { value: '140+', label: 'Countries' },
+              { value: '98.6%', label: 'On-Time Delivery' },
+              { value: '500+', label: 'Enterprise Clients' },
             ].map((stat) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: stat.delay }}
-                className="relative group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/10 to-transparent rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative p-6 bg-brand-surface/5 border border-brand-border/30 rounded-lg backdrop-blur-sm hover:border-brand-accent/30 transition-all duration-500">
-                  <div className="text-3xl md:text-4xl font-display font-bold bg-gradient-to-r from-brand-accent to-brand-accent-light bg-clip-text text-transparent mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-brand-muted text-xs uppercase tracking-wider font-semibold">
-                    {stat.label}
-                  </div>
+              <div key={stat.label}>
+                <div className="text-4xl font-bold text-white mb-2">
+                  {stat.value}
                 </div>
-              </motion.div>
+                <div className="text-sm text-slate-500 font-medium">
+                  {stat.label}
+                </div>
+              </div>
             ))}
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }
