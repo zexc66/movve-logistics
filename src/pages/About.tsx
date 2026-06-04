@@ -46,7 +46,7 @@ export function About() {
               To become the world's most trusted logistics partner by delivering unparalleled
               reliability, innovation, and customer service across every touchpoint of the
               supply chain. We envision a future where logistics infrastructure is as
-              seamless and reliable as electricity.
+              reliable and consistent as electricity.
             </p>
           </div>
         </div>
