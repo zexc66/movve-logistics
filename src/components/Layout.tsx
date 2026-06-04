@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '../utils/cn'
 import { Footer } from './Footer'
+import { Icons } from './Icons'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -38,9 +39,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       >
         <div className="container">
           <div className="flex items-center justify-between py-4">
-            <Link to="/" className="text-2xl font-bold text-white">
-              MOVVE
-            </Link>
+          <Link to="/" className="text-2xl font-bold text-white flex items-center gap-2">
+            <span className="w-8 h-8 flex items-center justify-center text-brand-accent">
+              {Icons.threeBar}
+            </span>
+            <span>MOVVE</span>
+          </Link>
 
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (

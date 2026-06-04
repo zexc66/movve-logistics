@@ -3,32 +3,71 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #0A1628;
-  --color-secondary: #5B6E8C;
-  --color-tertiary: #991B1E;
-  --color-neutral: #F7F8FA;
-  --color-surface: #FFFFFF;
-  --color-border: #E2E6ED;
-  --color-muted: #8E99A9;
+  /* Commanding Brand Colors - OKLCH for perceptual uniformity */
+  --brand-hue: 354;
+  
+  /* Primary - Deep authoritative navy */
+  --color-primary: oklch(0.18 0.02 var(--brand-hue));
+  --color-primary-light: oklch(0.24 0.03 var(--brand-hue));
+  --color-primary-dark: oklch(0.12 0.02 var(--brand-hue));
+  
+  /* Secondary - Refined steel */
+  --color-secondary: oklch(0.42 0.03 var(--brand-hue));
+  --color-secondary-light: oklch(0.50 0.04 var(--brand-hue));
+  --color-secondary-dark: oklch(0.32 0.02 var(--brand-hue));
+  
+  /* Accent - MOVVE Crimson with sophistication */
+  --color-accent: oklch(0.55 0.18 25); /* Rich crimson */
+  --color-accent-light: oklch(0.62 0.20 25);
+  --color-accent-dark: oklch(0.48 0.16 25);
+  
+  /* Neutrals tinted toward brand hue */
+  --color-surface: oklch(0.98 0.005 var(--brand-hue));
+  --color-surface-subtle: oklch(0.95 0.01 var(--brand-hue));
+  --color-border: oklch(0.90 0.015 var(--brand-hue));
+  --color-muted: oklch(0.55 0.02 var(--brand-hue));
+  --color-text: oklch(0.15 0.01 var(--brand-hue));
+  
+  /* Functional Colors */
+  --color-success: oklch(0.60 0.15 140);
+  --color-warning: oklch(0.70 0.12 60);
+  --color-error: oklch(0.55 0.20 25);
+  --color-info: oklch(0.55 0.15 250);
 
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Typography Scale - Commanding hierarchy */
+  --font-display: 'Neue Haas Grotesk Display', 'Gotham', 'Aktiv Grotesk', sans-serif;
+  --font-body: 'Georgia', 'Source Serif 4', 'Iowan Old Style', serif;
+  
+  --text-hero: clamp(3.5rem, 8vw, 6rem);
+  --text-h1: clamp(3rem, 6vw, 4.5rem);
+  --text-h2: clamp(2.25rem, 4vw, 3rem);
+  --text-h3: clamp(1.5rem, 2.5vw, 2rem);
+  --text-body: clamp(1rem, 1.5vw, 1.25rem);
+  --text-small: clamp(0.875rem, 1vw, 1rem);
 
-  --spacing-xs: 6px;
-  --spacing-sm: 12px;
-  --spacing-md: 20px;
-  --spacing-lg: 32px;
-  --spacing-xl: 56px;
-  --spacing-2xl: 80px;
+  /* Spacing Scale - Rhythm through variety */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 24px;
+  --space-xl: 48px;
+  --space-2xl: 80px;
+  --space-3xl: 120px;
+  --space-4xl: 160px;
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-full: 9999px;
+  /* Border Radius - Refined but commanding */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  /* Shadows - Precision depth */
+  --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.08);
+  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.12);
+  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.16);
+  --shadow-xl: 0 24px 64px oklch(0 0 0 / 0.20);
+  --shadow-commanding: 0 0 0 4px oklch(0.55 0.18 25 / 0.3);
 }
 
 * {

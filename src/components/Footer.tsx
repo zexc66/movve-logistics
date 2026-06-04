@@ -1,144 +1,203 @@
 import { Link } from 'react-router-dom'
+import { Icons } from '../components/Icons'
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const footerLinks = {
+    platform: {
+      title: 'Platform',
+      links: [
+        { label: 'Tracking', href: '/tracking' },
+        { label: 'Services', href: '/services' },
+        { label: 'API Integration', href: '/#platform' },
+        { label: 'Analytics', href: '/#features' },
+      ],
+    },
+    company: {
+      title: 'Company',
+      links: [
+        { label: 'About', href: '/about' },
+        { label: 'Careers', href: '/careers' },
+        { label: 'Blog', href: '/blog' },
+        { label: 'Contact', href: '/contact' },
+      ],
+    },
+    resources: {
+      title: 'Resources',
+      links: [
+        { label: 'Documentation', href: '/#platform' },
+        { label: 'Case Studies', href: '/#platform' },
+        { label: 'Industry Reports', href: '/blog' },
+        { label: 'Support Center', href: '/#platform' },
+      ],
+    },
+    legal: {
+      title: 'Legal',
+      links: [
+        { label: 'Privacy Policy', href: '#' },
+        { label: 'Terms of Service', href: '#' },
+        { label: 'Cookie Policy', href: '#' },
+        { label: 'Compliance', href: '#' },
+      ],
+    },
+  }
+
+  const socialLinks = [
+    { label: 'Twitter', icon: Icons.analytics, href: '#' },
+    { label: 'LinkedIn', icon: Icons.apiPlatform, href: '#' },
+    { label: 'GitHub', icon: Icons.threeBar, href: '#' },
+  ]
+
+  const certifications = [
+    { name: 'ISO 9001', icon: Icons.enterpriseSecurity },
+    { name: 'AEO', icon: Icons.customsBrokerage },
+    { name: 'GDP', icon: Icons.coldChain },
+  ]
 
   return (
-    <footer className="bg-gradient-to-b from-blue-900 to-navy py-16 border-t border-white/10">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="border-t-2 border-brand-border bg-brand-primary-dark">
+      <div className="container mx-auto px-4 py-space-3xl">
+        <div className="grid lg:grid-cols-6 gap-space-3xl">
           <div className="lg:col-span-2">
-            <Link to="/" className="text-3xl font-bold text-white mb-4 block">
-              MOVVE
+            <Link
+              to="/"
+              className="inline-flex items-center gap-space-sm mb-space-md"
+            >
+              <span className="text-brand-accent text-4xl">{Icons.logo}</span>
+              <span className="font-display text-h1 font-bold text-brand-surface">
+                MOVVE
+              </span>
             </Link>
-            <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
-              Enterprise-grade global logistics platform. 98.6% on-time delivery
-              across 140+ countries. Trusted by Fortune 500 companies worldwide.
+
+            <p className="text-brand-secondary-light text-body text-sm leading-relaxed mb-space-lg">
+              Precision logistics for the modern world. Global reach, local expertise,
+              and data-driven insights for enterprise-level supply chain management.
             </p>
-            <form className="flex gap-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-crimson transition-colors"
-                aria-label="Email for newsletter"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-crimson text-white rounded-lg font-semibold hover:bg-crimson/90 transition-colors whitespace-nowrap"
-              >
-                Subscribe
-              </button>
-            </form>
+
+            <div className="flex flex-wrap gap-space-sm mb-space-lg">
+              {certifications.map((cert) => (
+                <div
+                  key={cert.name}
+                  className="flex items-center gap-space-sm px-space-sm py-space-xs border border-brand-border/50 bg-brand-surface/5"
+                >
+                  <span className="text-brand-accent text-sm">{cert.icon}</span>
+                  <span className="text-brand-surface text-xs font-display font-semibold">
+                    {cert.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-space-sm">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  className="p-space-sm border border-brand-border/50 bg-brand-surface/5 text-brand-accent hover:border-brand-accent/30 transition-colors"
+                  aria-label={social.label}
+                >
+                  <span className="text-xl">{social.icon}</span>
+                </a>
+              ))}
+            </div>
           </div>
 
-          <div>
-            <h4 className="text-white font-bold mb-4">Services</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/services" className="text-gray-400 hover:text-crimson transition-colors">
-                  Air Freight
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-gray-400 hover:text-crimson transition-colors">
-                  Ocean Freight
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-gray-400 hover:text-crimson transition-colors">
-                  Ground Transport
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-gray-400 hover:text-crimson transition-colors">
-                  Warehousing
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-gray-400 hover:text-crimson transition-colors">
-                  Customs Brokerage
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-gray-400 hover:text-crimson transition-colors">
-                  Cold Chain
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <div className="lg:col-span-4 grid md:grid-cols-2 lg:grid-cols-4 gap-space-3xl">
+            <div>
+              <h3 className="font-display text-h3 font-bold text-brand-surface mb-space-md">
+                {footerLinks.platform.title}
+              </h3>
+              <ul className="space-y-space-sm">
+                {footerLinks.platform.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="text-brand-secondary-light text-sm hover:text-brand-accent transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h4 className="text-white font-bold mb-4">Company</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/about" className="text-gray-400 hover:text-crimson transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/careers" className="text-gray-400 hover:text-crimson transition-colors">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="text-gray-400 hover:text-crimson transition-colors">
-                  Press & Media
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="text-gray-400 hover:text-crimson transition-colors">
-                  Sustainability
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-400 hover:text-crimson transition-colors">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="text-gray-400 hover:text-crimson transition-colors">
-                  Blog
-                </Link>
-              </li>
-            </ul>
+            <div>
+              <h3 className="font-display text-h3 font-bold text-brand-surface mb-space-md">
+                {footerLinks.company.title}
+              </h3>
+              <ul className="space-y-space-sm">
+                {footerLinks.company.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="text-brand-secondary-light text-sm hover:text-brand-accent transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-display text-h3 font-bold text-brand-surface mb-space-md">
+                {footerLinks.resources.title}
+              </h3>
+              <ul className="space-y-space-sm">
+                {footerLinks.resources.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="text-brand-secondary-light text-sm hover:text-brand-accent transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-display text-h3 font-bold text-brand-surface mb-space-md">
+                {footerLinks.legal.title}
+              </h3>
+              <ul className="space-y-space-sm">
+                {footerLinks.legal.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="text-brand-secondary-light text-sm hover:text-brand-accent transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm">
-            © {currentYear} MOVVE Logistics. All rights reserved.
-          </p>
-          <div className="flex gap-4 text-sm">
-            <Link to="#" className="text-gray-400 hover:text-crimson transition-colors">
-              Privacy Policy
-            </Link>
-            <span className="text-gray-600">•</span>
-            <Link to="#" className="text-gray-400 hover:text-crimson transition-colors">
-              Terms of Service
-            </Link>
-          </div>
-          <div className="flex gap-4">
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-gray-400 hover:bg-crimson hover:text-white transition-all"
-            >
-              in
-            </a>
-            <a
-              href="#"
-              aria-label="Twitter"
-              className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-gray-400 hover:bg-crimson hover:text-white transition-all"
-            >
-              𝕏
-            </a>
-            <a
-              href="#"
-              aria-label="YouTube"
-              className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-gray-400 hover:bg-crimson hover:text-white transition-all"
-            >
-              ▶
-            </a>
+      <div className="border-t border-brand-border bg-brand-primary-dark">
+        <div className="container mx-auto px-4 py-space-lg">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-space-md text-brand-muted text-sm">
+            <p>
+              © 2026 MOVVE. All rights reserved. Built for the modern logistics era.
+            </p>
+            <div className="flex items-center gap-space-md">
+              <a
+                href="#"
+                className="hover:text-brand-accent transition-colors"
+              >
+                Privacy Settings
+              </a>
+              <span>•</span>
+              <a
+                href="#"
+                className="hover:text-brand-accent transition-colors"
+              >
+                Cookie Preferences
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -74,114 +74,110 @@ export function Tracking() {
 
   return (
     <>
-      <section className="py-24 bg-navy">
+      <section className="py-space-4xl bg-brand-primary">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <div className="inline-flex items-center gap-2 text-crimson font-semibold text-sm mb-4">
-              <div className="flex gap-1">
-                <span className="w-2 h-2 bg-crimson rounded-sm" />
-                <span className="w-2 h-2 bg-crimson rounded-sm" />
-                <span className="w-2 h-2 bg-crimson rounded-sm" />
-              </div>
-              <span>SHIPMENT TRACKING</span>
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-space-lg flex items-center gap-space-sm">
+              <div className="w-12 h-px bg-brand-accent"></div>
+              <span className="text-brand-accent uppercase tracking-wider text-sm font-display font-semibold">
+                Shipment Tracking
+              </span>
+              <div className="w-12 h-px bg-brand-accent"></div>
             </div>
-            <h1 className="text-5xl font-bold text-white mb-6">
+
+            <h1 className="font-display font-hero font-bold text-brand-surface mb-space-md">
               Track Your Shipment
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed">
-              Real-time visibility across air, ocean, and ground. Enter your tracking number
-              to get instant updates on your shipment's status.
+            <p className="text-brand-secondary-light text-body text-xl leading-relaxed mb-space-2xl">
+              Real-time visibility across air, ocean, and ground transport. Enter your tracking
+              number to get instant status updates.
             </p>
-          </motion.div>
-        </div>
-      </section>
 
-      <section className="py-24 bg-gradient-to-b from-navy to-blue-900">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
-            <motion.form
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              onSubmit={handleTrack}
-              className="flex gap-4 mb-12"
-            >
-              <input
-                type="text"
-                value={trackingNumber}
-                onChange={(e) => setTrackingNumber(e.target.value)}
-                placeholder="Enter tracking number (e.g., HKG-AMS-8842)"
-                className="flex-1 px-6 py-4 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-crimson text-lg"
-                aria-label="Enter tracking number"
-              />
-              <button
-                type="submit"
-                className="px-8 py-4 bg-crimson text-white rounded-lg font-bold text-lg hover:bg-crimson/90 transition-colors whitespace-nowrap"
-              >
-                Track
-              </button>
-            </motion.form>
+            <div className="max-w-2xl mx-auto">
+              <div className="mb-space-sm">
+                <label htmlFor="tracking-input" className="block text-brand-muted text-sm font-semibold mb-space-sm">
+                  Tracking Number
+                </label>
+              </div>
+              <form onSubmit={handleTrack} className="flex gap-space-sm">
+                <input
+                  type="text"
+                  id="tracking-input"
+                  value={trackingNumber}
+                  onChange={(e) => setTrackingNumber(e.target.value)}
+                  placeholder="e.g., HKG-AMS-8842"
+                  className="flex-1 px-space-lg py-space-md bg-brand-surface border-2 border-brand-border text-brand-text font-body text-lg placeholder-brand-muted focus:outline-none focus:ring-2 focus:ring-brand-accent transition-colors"
+                  aria-label="Enter tracking number"
+                />
+                <button
+                  type="submit"
+                  disabled={trackingResult.status === 'processing'}
+                  className="px-space-xl py-space-md bg-brand-accent text-brand-surface font-display font-bold text-lg hover:bg-brand-accent-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-commanding"
+                >
+                  {trackingResult.status === 'processing' ? 'Tracking...' : 'Track'}
+                </button>
+              </form>
+
+              <p className="mt-space-md text-brand-muted text-sm">
+                Demo tracking number: HKG-AMS-8842
+              </p>
+            </div>
 
             {trackingResult.status === 'processing' && trackingNumber && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-center py-12"
-              >
-                <div className="w-16 h-16 border-4 border-crimson border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-                <p className="text-gray-300">Tracking your shipment...</p>
-              </motion.div>
+              <div className="text-center py-space-2xl">
+                <div className="w-12 h-12 border-4 border-brand-accent border-t-transparent rounded-full flex items-center justify-center mx-auto mb-space-md animate-spin">
+                </div>
+                <p className="text-brand-secondary-light">Tracking your shipment...</p>
+              </div>
             )}
 
             {trackingResult.status === 'found' && trackingResult.data && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
+                className="mt-space-xl p-space-xl border border-brand-border bg-brand-surface"
               >
-                <div className="flex justify-between items-start mb-8 pb-6 border-b border-white/10">
+                <div className="flex justify-between items-start mb-space-lg pb-space-lg border-b border-brand-border/50">
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                    <h3 className="font-display text-h2 font-bold text-brand-primary mb-1">
                       {trackingResult.data.trackingNumber}
                     </h3>
-                    <p className="text-gray-400">
+                    <p className="text-brand-muted">
                       {trackingResult.data.status} — {trackingResult.data.location}
                     </p>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm text-gray-400 mb-1">ETA</div>
-                    <div className="text-xl font-bold text-crimson">
+                    <p className="text-brand-muted text-sm uppercase tracking-wider mb-1">
+                      ETA
+                    </p>
+                    <div className="text-brand-accent font-display text-h1 font-bold">
                       {trackingResult.data.eta}
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-6">
-                    {trackingResult.data?.history.map((event, index) => (
-                    <div key={index} className="flex gap-4">
-                      <div className="flex flex-col items-center">
-                        <div
-                          className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                            event.completed
-                              ? 'bg-green-500'
-                              : 'bg-crimson animate-pulse'
-                          }`}
-                        >
+                <div className="space-y-space-lg">
+                  {trackingResult.data.history.map((event, index) => (
+                    <div key={index} className="flex gap-space-md">
+                      <div className="flex-shrink-0">
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center font-display font-bold ${
+                          event.completed
+                            ? 'bg-brand-success text-brand-surface'
+                            : 'bg-brand-accent text-brand-surface animate-pulse'
+                        }`}>
                           {event.completed ? '✓' : '●'}
                         </div>
-                        {trackingResult.data && index < trackingResult.data.history.length - 1 && (
-                          <div className="w-0.5 h-16 bg-white/20 mt-2" />
-                        )}
                       </div>
-                      <div className="flex-1 pb-6">
-                        <h4 className="text-white font-semibold mb-1">
+                      <div className="flex-1 pb-space-lg">
+                        <h4 className="font-display text-h3 font-bold text-brand-primary mb-1">
                           {event.status}
                         </h4>
-                        <p className="text-gray-400 text-sm">{event.location}</p>
-                        <p className="text-gray-500 text-sm mt-1">{event.date}</p>
+                        <p className="text-brand-muted text-sm">
+                          {event.location}
+                        </p>
+                        <p className="text-brand-muted text-xs mt-1">
+                          {event.date}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -193,18 +189,20 @@ export function Tracking() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-red-500/10 border border-red-500/30 rounded-2xl p-8 text-center"
+                className="mt-space-xl p-space-xl border-2 border-brand-error bg-brand-error/5 text-center"
               >
-                <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
-                  ❌
+                <div className="flex items-center justify-center gap-space-sm mb-space-md">
+                  <span className="w-12 h-12 flex items-center justify-center text-brand-error">
+                    ✕
+                  </span>
+                  <h3 className="font-display text-h2 font-bold text-brand-error">
+                    Shipment Not Found
+                  </h3>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Shipment Not Found
-                </h3>
-                <p className="text-gray-300 mb-4">
+                <p className="text-brand-muted mb-space-md">
                   We couldn't find a shipment with tracking number "{trackingNumber}"
                 </p>
-                <p className="text-gray-400 text-sm">
+                <p className="text-brand-secondary text-sm">
                   Try: HKG-AMS-8842 for a demo
                 </p>
               </motion.div>
@@ -213,28 +211,21 @@ export function Tracking() {
         </div>
       </section>
 
-      <section className="py-24 bg-blue-900">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
+      <section className="py-space-4xl bg-gradient-to-b from-brand-primary to-brand-primary-dark">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="font-display text-h1 font-bold text-brand-surface mb-space-md">
+            Need Help Tracking?
+          </h2>
+          <p className="text-brand-secondary-light text-body text-xl mb-space-2xl max-w-3xl mx-auto">
+            Our support team is available 24/7 to help with any tracking questions or
+            concerns.
+          </p>
+          <a
+            href="/contact"
+            className="inline-block px-space-xl py-space-md bg-brand-accent text-brand-surface font-display font-bold text-lg hover:bg-brand-accent-dark transition-colors shadow-commanding"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Need Help Tracking?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Our support team is available 24/7 to help you with any tracking
-              questions or concerns.
-            </p>
-            <a
-              href="/contact"
-              className="inline-block px-8 py-4 bg-crimson text-white rounded-sm font-bold text-lg hover:bg-crimson/90 transition-colors"
-            >
-              Contact Support
-            </a>
-          </motion.div>
+            Contact Support
+          </a>
         </div>
       </section>
     </>
