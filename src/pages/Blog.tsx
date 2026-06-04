@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Icons } from '../components/Icons'
 
 export function Blog() {
   const posts = [
@@ -11,7 +10,6 @@ export function Blog() {
       date: 'May 15, 2026',
       category: 'Technology',
       readTime: '8 min read',
-      icon: Icons.aiRouting,
       metrics: '2,400 reads',
     },
     {
@@ -21,7 +19,6 @@ export function Blog() {
       date: 'May 10, 2026',
       category: 'Sustainability',
       readTime: '6 min read',
-      icon: Icons.sustainability,
       metrics: '1,800 reads',
     },
     {
@@ -31,7 +28,6 @@ export function Blog() {
       date: 'May 5, 2026',
       category: 'Operations',
       readTime: '10 min read',
-      icon: Icons.coldChain,
       metrics: '3,200 reads',
     },
     {
@@ -41,7 +37,6 @@ export function Blog() {
       date: 'April 28, 2026',
       category: 'Industry',
       readTime: '12 min read',
-      icon: Icons.customsBrokerage,
       metrics: '2,600 reads',
     },
     {
@@ -51,7 +46,6 @@ export function Blog() {
       date: 'April 20, 2026',
       category: 'Strategy',
       readTime: '7 min read',
-      icon: Icons.enterpriseSecurity,
       metrics: '1,900 reads',
     },
     {
@@ -61,19 +55,18 @@ export function Blog() {
       date: 'April 15, 2026',
       category: 'E-Commerce',
       readTime: '9 min read',
-      icon: Icons.apiPlatform,
       metrics: '3,500 reads',
     },
   ]
 
   const categories = [
-    { name: 'All', count: 48, icon: null },
-    { name: 'Technology', count: 12, icon: Icons.aiRouting },
-    { name: 'Sustainability', count: 8, icon: Icons.sustainability },
-    { name: 'Operations', count: 8, icon: Icons.groundTransport },
-    { name: 'Industry', count: 6, icon: Icons.analytics },
-    { name: 'Strategy', count: 4, icon: Icons.threeBar },
-    { name: 'E-Commerce', count: 6, icon: Icons.apiPlatform },
+    { name: 'All', count: 48 },
+    { name: 'Technology', count: 12 },
+    { name: 'Sustainability', count: 8 },
+    { name: 'Operations', count: 8 },
+    { name: 'Industry', count: 6 },
+    { name: 'Strategy', count: 4 },
+    { name: 'E-Commerce', count: 6 },
   ]
 
   return (
@@ -81,7 +74,7 @@ export function Blog() {
       <section className="py-space-4xl bg-brand-primary">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="mb-space-lg flex items-center gap-space-sm">
+            <div className="mb-space-lg flex items-center justify-center gap-space-sm">
               <div className="w-12 h-px bg-brand-accent"></div>
               <span className="text-brand-accent uppercase tracking-wider text-sm font-display font-semibold">
                 Insights
@@ -93,8 +86,7 @@ export function Blog() {
               Logistics Intelligence & Trends
             </h1>
             <p className="text-brand-secondary-light text-body text-xl leading-relaxed mb-space-xl">
-              Stay informed with the latest industry news, expert analysis, and
-              actionable insights from our logistics experts.
+              Stay informed with the latest industry news, expert analysis, and actionable insights from our logistics experts.
             </p>
           </div>
         </div>
@@ -114,14 +106,7 @@ export function Blog() {
                       key={category.name}
                       className="w-full flex justify-between items-center px-space-md py-space-sm bg-brand-surface/5 border border-brand-border text-brand-text hover:bg-brand-surface hover:border-brand-accent/30 hover:text-brand-accent transition-all text-left group"
                     >
-                      <div className="flex items-center gap-space-sm">
-                        {category.icon && (
-                          <span className="w-6 h-6 flex items-center justify-center text-brand-accent">
-                            {category.icon}
-                          </span>
-                        )}
-                        <span>{category.name}</span>
-                      </div>
+                      <span>{category.name}</span>
                       <span className="text-brand-muted text-sm">
                         {category.count}
                       </span>
@@ -142,10 +127,10 @@ export function Blog() {
                     transition={{ delay: index * 0.1 }}
                     className="border border-brand-border/50 bg-brand-primary/30 p-space-xl hover:border-brand-accent/30 transition-all group"
                   >
-                    <div className="aspect-video bg-gradient-to-br from-brand-accent/10 to-brand-accent/5 flex items-center justify-center text-brand-accent text-6xl mb-space-md">
-                      {post.icon}
+                    <div className="aspect-video bg-gradient-to-br from-brand-accent/10 to-brand-accent/5 flex items-center justify-center text-brand-accent text-4xl mb-space-md">
+                      📦
                     </div>
-                    <div className="flex items-center gap-space-sm mb-space-md text-brand-muted text-sm">
+                    <div className="flex flex-wrap items-center gap-space-sm mb-space-md text-brand-muted text-sm">
                       <span className="px-space-sm py-space-xs bg-brand-accent/20 text-brand-surface font-semibold uppercase tracking-wider">
                         {post.category}
                       </span>
@@ -154,7 +139,7 @@ export function Blog() {
                       <span>•</span>
                       <span>{post.readTime}</span>
                       <span>•</span>
-                      <span>{post.metrics} reads</span>
+                      <span>{post.metrics}</span>
                     </div>
                     <h3 className="font-display text-h2 font-bold text-brand-surface mb-space-md group-hover:text-brand-accent transition-colors">
                       {post.title}
@@ -190,7 +175,7 @@ export function Blog() {
 
       <section className="py-space-4xl bg-brand-primary-dark">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-display text-h1 font-bold text-brand-surface mb-space-md">
               Subscribe to Intelligence Updates
             </h2>
@@ -203,11 +188,10 @@ export function Blog() {
                 type="email"
                 placeholder="Enter your email"
                 className="flex-1 px-space-lg py-space-md bg-brand-surface border-2 border-brand-border text-brand-text placeholder-brand-muted focus:outline-none focus:ring-2 focus:ring-brand-accent transition-colors"
-                aria-label="Email address"
               />
               <button
                 type="submit"
-                className="px-space-xl py-space-md bg-brand-accent text-brand-surface font-display font-bold hover:bg-brand-accent-dark transition-colors shadow-commanding"
+                className="px-space-xl py-space-md bg-brand-accent text-brand-surface font-display font-bold hover:bg-brand-accent-dark transition-colors"
               >
                 Subscribe
               </button>

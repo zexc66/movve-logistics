@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Icons } from '../components/Icons'
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -66,7 +65,7 @@ export function Contact() {
       <section className="py-space-4xl bg-brand-primary">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="mb-space-lg flex items-center gap-space-sm">
+            <div className="mb-space-lg flex items-center justify-center gap-space-sm">
               <div className="w-12 h-px bg-brand-accent"></div>
               <span className="text-brand-accent uppercase tracking-wider text-sm font-display font-semibold">
                 Contact Us
@@ -78,8 +77,7 @@ export function Contact() {
               Get in Touch
             </h1>
             <p className="text-brand-secondary-light text-body text-xl leading-relaxed mb-space-2xl">
-              Ready to transform your supply chain? Contact our team for a personalized
-              demo and see precision in action.
+              Ready to transform your supply chain? Contact our team for a personalized demo and see precision in action.
             </p>
           </div>
         </div>
@@ -187,7 +185,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-space-xl py-space-md bg-brand-accent text-brand-surface font-display font-bold text-lg hover:bg-brand-accent-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-commanding"
+                  className="w-full px-space-xl py-space-md bg-brand-accent text-brand-surface font-display font-bold text-lg hover:bg-brand-accent-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
@@ -218,16 +216,16 @@ export function Contact() {
                       {location.city}
                     </h3>
                     <div className="space-y-space-sm text-brand-secondary-light text-sm">
-                      <div className="flex items-center gap-space-sm">
-                        {Icons.fullVisibility}
+                      <div className="flex items-start gap-space-sm">
+                        <span className="text-brand-accent mt-0.5">📍</span>
                         <span>{location.address}</span>
                       </div>
-                      <div className="flex items-center gap-space-sm">
-                        {Icons.tracking}
+                      <div className="flex items-start gap-space-sm">
+                        <span className="text-brand-accent mt-0.5">📞</span>
                         <span>{location.phone}</span>
                       </div>
-                      <div className="flex items-center gap-space-sm">
-                        {Icons.apiPlatform}
+                      <div className="flex items-start gap-space-sm">
+                        <span className="text-brand-accent mt-0.5">✉️</span>
                         <span>{location.email}</span>
                       </div>
                     </div>
@@ -248,14 +246,13 @@ export function Contact() {
             24/7 Global Support
           </h2>
           <p className="text-brand-secondary-light text-body text-xl mb-space-2xl">
-            Our support team is available around the clock to help with any logistics
-            issues or concerns.
+            Our support team is available around the clock to help with any logistics issues or concerns.
           </p>
           <a
             href="tel:+18005550123"
-            className="inline-flex items-center gap-space-sm text-brand-accent font-display font-semibold hover:gap-space-lg transition-all"
+            className="inline-flex items-center gap-space-sm text-brand-accent font-display font-semibold text-lg hover:text-brand-accent-light transition-colors"
           >
-            <span>{Icons.tracking}</span>
+            <span>📞</span>
             +1 (800) 555-0123
           </a>
         </div>

@@ -30,9 +30,13 @@
   
   /* Functional Colors */
   --color-success: oklch(0.60 0.15 140);
+  --color-success-light: oklch(0.70 0.18 140);
   --color-warning: oklch(0.70 0.12 60);
+  --color-warning-light: oklch(0.80 0.14 60);
   --color-error: oklch(0.55 0.20 25);
+  --color-error-light: oklch(0.65 0.22 25);
   --color-info: oklch(0.55 0.15 250);
+  --color-info-light: oklch(0.65 0.17 250);
 
   /* Typography Scale - Commanding hierarchy */
   --font-display: 'Neue Haas Grotesk Display', 'Gotham', 'Aktiv Grotesk', sans-serif;
