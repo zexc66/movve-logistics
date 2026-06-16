@@ -54,7 +54,7 @@ export function DashboardWidgets() {
   }, [])
 
   return (
-    <div className="grid grid-cols-3 gap-6 mb-12">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
       {metrics.map((m, i) => (
         <div key={i} className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300">
           <div ref={el => countersRef.current[i] = el} className="text-4xl font-bold text-white mb-2" style={{ fontFamily: 'var(--font-display)' }}>

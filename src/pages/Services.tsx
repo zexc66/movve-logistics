@@ -281,7 +281,7 @@ export function Services() {
                   <p className="text-sm font-semibold text-slate-700 mb-4">
                     Key Metrics
                   </p>
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {service.metrics.map((metric) => (
                       <div key={metric} className="bg-slate-50 px-3 py-2 rounded-lg">
                         <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
