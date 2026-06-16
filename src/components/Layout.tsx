@@ -3,6 +3,14 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { Footer } from './Footer'
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
@@ -31,8 +39,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <ScrollToTop />
       {/* Double-bezel navigation */}
       <motion.nav
+        aria-label="Main navigation"
         style={{ opacity: navOpacity, backdropFilter: `blur(${navBlur}px)`, zIndex: 'var(--z-fixed)' }}
         className="fixed top-0 left-0 right-0 transition-all duration-300"
       >
