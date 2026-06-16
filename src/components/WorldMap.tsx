@@ -86,7 +86,7 @@ export function WorldMap() {
             Array.from({ length: 100 }).map((_, col) => {
               // Rough continent approximation using noise
               const x = col
-              const y = row / 2
+              const y = row
               const isLand =
                 // North America
                 (x > 10 && x < 28 && y > 12 && y < 26 && !(x < 14 && y > 22)) ||
@@ -101,7 +101,7 @@ export function WorldMap() {
                 // Australia
                 (x > 80 && x < 92 && y > 32 && y < 40)
               if (isLand && (row + col) % 2 === 0) {
-                return <circle key={`${row}-${col}`} cx={col} cy={row / 2} r="0.25" />
+                return <circle key={`${row}-${col}`} cx={col} cy={row} r="0.25" />
               }
               return null
             })

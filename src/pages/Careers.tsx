@@ -9,7 +9,7 @@ import { ParticleBackground } from '@/components/ParticleBackground'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function Careers() {
+export function Careers() {
   const heroRef = useRef<HTMLElement>(null)
   const benefitsRef = useRef<HTMLElement>(null)
   const jobsRef = useRef<HTMLElement>(null)
