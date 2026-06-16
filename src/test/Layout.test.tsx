@@ -14,12 +14,12 @@ describe('Layout', () => {
     )
 
     expect(screen.getByText('Home')).toBeInTheDocument()
-    expect(screen.getByText('About')).toBeInTheDocument()
-    expect(screen.getByText('Services')).toBeInTheDocument()
+    expect(screen.getAllByText('About').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Services').length).toBeGreaterThanOrEqual(1)
     expect(screen.getByText('Track')).toBeInTheDocument()
-    expect(screen.getByText('Careers')).toBeInTheDocument()
-    expect(screen.getByText('Blog')).toBeInTheDocument()
-    expect(screen.getByText('Contact')).toBeInTheDocument()
+    expect(screen.getAllByText('Careers').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Blog').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Contact').length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders MOVVE logo', () => {
@@ -31,7 +31,7 @@ describe('Layout', () => {
       </BrowserRouter>
     )
 
-    expect(screen.getByText('MOVVE')).toBeInTheDocument()
+    expect(screen.getAllByText('MOVVE').length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders footer', () => {
@@ -43,6 +43,6 @@ describe('Layout', () => {
       </BrowserRouter>
     )
 
-    expect(screen.getByText('©')).toBeInTheDocument()
+    expect(screen.getByText(/©/)).toBeInTheDocument()
   })
 })

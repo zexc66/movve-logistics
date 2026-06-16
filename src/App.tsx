@@ -4,7 +4,7 @@ import { Home } from './pages/Home'
 import { About } from './pages/About'
 import { Services } from './pages/Services'
 import { Tracking } from './pages/Tracking'
-import { Careers } from './pages/Careers'
+import Careers from './pages/Careers'
 import { Blog } from './pages/Blog'
 import { Contact } from './pages/Contact'
 

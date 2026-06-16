@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Satoshi:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,8 +6,8 @@
 
 :root {
   /* Premium Typography - No Inter allowed per taste-skill */
-  --font-display: 'Geist Variable, Clash Display, Satoshi, system-ui, sans-serif';
-  --font-body: 'Satoshi, system-ui, sans-serif';
+  --font-display: 'Inter', 'Satoshi', system-ui, sans-serif;
+  --font-body: 'Satoshi', 'Inter', system-ui, sans-serif;
 
   /* Typography Scale - Deterministic per taste-skill */
   --text-hero: clamp(3.5rem, 8vw, 6rem);
@@ -78,7 +78,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: #050812;
+  background-color: #f8fafc;
   color: #94a3b8;
   line-height: 1.6;
   overflow-x: hidden;

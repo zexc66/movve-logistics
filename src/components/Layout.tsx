@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { Footer } from './Footer'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -181,6 +182,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </AnimatePresence>
 
       <main className="pt-32">{children}</main>
+      <Footer />
     </>
   )
 }
