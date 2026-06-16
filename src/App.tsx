@@ -1,13 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
-import { Component, type ErrorInfo, type ReactNode } from 'react'
+import { Component, Suspense, lazy, type ErrorInfo, type ReactNode } from 'react'
 import { Layout } from './components/Layout'
-import { Home } from './pages/Home'
-import { About } from './pages/About'
-import { Services } from './pages/Services'
-import { Tracking } from './pages/Tracking'
-import { Careers } from './pages/Careers'
-import { Blog } from './pages/Blog'
-import { Contact } from './pages/Contact'
+
+const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })))
+const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })))
+const Services = lazy(() => import('./pages/Services').then(m => ({ default: m.Services })))
+const Tracking = lazy(() => import('./pages/Tracking').then(m => ({ default: m.Tracking })))
+const Careers = lazy(() => import('./pages/Careers').then(m => ({ default: m.Careers })))
+const Blog = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })))
+const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })))
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
   state = { hasError: false }
@@ -60,16 +61,22 @@ function App() {
   return (
     <ErrorBoundary>
       <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/tracking" element={<Tracking />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={
+          <div className="min-h-[60vh] flex items-center justify-center">
+            <div className="w-10 h-10 border-2 border-slate-700 border-t-emerald-500 rounded-full animate-spin" />
+          </div>
+        }>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/tracking" element={<Tracking />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </Layout>
     </ErrorBoundary>
   )

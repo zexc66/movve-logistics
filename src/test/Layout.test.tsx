@@ -1,12 +1,18 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi, beforeAll } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import { Layout } from '../components/Layout'
 
+const routerFuture = { v7_startTransition: true, v7_relativeSplatPath: true } as const
+
+beforeAll(() => {
+  window.scrollTo = vi.fn()
+})
+
 describe('Layout', () => {
   it('renders navigation with correct links', () => {
     render(
-      <BrowserRouter>
+      <BrowserRouter future={routerFuture}>
         <Layout>
           <div>Test Content</div>
         </Layout>
@@ -24,7 +30,7 @@ describe('Layout', () => {
 
   it('renders MOVVE logo', () => {
     render(
-      <BrowserRouter>
+      <BrowserRouter future={routerFuture}>
         <Layout>
           <div>Test Content</div>
         </Layout>
@@ -36,7 +42,7 @@ describe('Layout', () => {
 
   it('renders footer', () => {
     render(
-      <BrowserRouter>
+      <BrowserRouter future={routerFuture}>
         <Layout>
           <div>Test Content</div>
         </Layout>
