@@ -61,7 +61,7 @@ export function Tracking() {
           scrollTrigger: {
             trigger: headerRef.current,
             start: 'top 75%',
-            toggleActions: 'play none none none reverse',
+            toggleActions: 'play none none reverse',
           },
         }
       )
