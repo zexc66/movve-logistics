@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Satoshi:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -78,8 +76,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: #f8fafc;
-  color: #94a3b8;
+  background-color: #050812;
+  color: #cbd5e1;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -87,9 +85,7 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-  transition: all 0.2s var(--spring-smooth);
-  transition-duration: 200ms;
-  transition-timing-function: var(--ease-quart);
+  transition: color 200ms var(--ease-quart);
 }
 
 button {
@@ -146,28 +142,20 @@ img {
   opacity: 0.25;
 }
 
-/* Premium Focus States - WCAG AA compliant */
 *:focus-visible {
   outline: 2px solid #10b981;
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-/* High contrast focus states for light backgrounds */
-*:focus-visible {
-  outline: 2px solid #059669;
-}
-
-/* Dark mode focus states */
 @media (prefers-color-scheme: dark) {
   *:focus-visible {
-    outline: 2px solid #10b981;
-    outline-offset: 3px;
+    outline-color: #34d399;
   }
 }
 
 /* Smooth Scrolling */
-@scroll-smooth {
+html {
   scroll-behavior: smooth;
 }
 
