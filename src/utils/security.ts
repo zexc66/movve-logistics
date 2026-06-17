@@ -9,11 +9,16 @@ export const securityHeaders = {
     'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
 }
 
+export const productionSecurityHeaders = {
+  ...securityHeaders,
+  'Content-Security-Policy':
+    "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https:; media-src 'self' https:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'",
+}
+
 export function generateCSRFToken(): string {
-  return (
-    Math.random().toString(36).substring(2, 15) +
-    Math.random().toString(36).substring(2, 15)
-  )
+  const bytes = new Uint8Array(32)
+  crypto.getRandomValues(bytes)
+  return Array.from(bytes, (b) => b.toString(16).padStart(2, '0')).join('')
 }
 
 export function validateEmail(email: string): boolean {
