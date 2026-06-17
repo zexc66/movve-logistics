@@ -1,23 +1,17 @@
 {
-  "name": "movve-website",
+  "name": "MOVVE — Enterprise Logistics Platform",
   "short_name": "MOVVE",
-  "description": "Enterprise-grade global logistics platform",
+  "description": "Precision logistics for global supply chains.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0A1628",
-  "theme_color": "#991B1E",
-  "orientation": "portrait-primary",
+  "background_color": "#050812",
+  "theme_color": "#050812",
+  "orientation": "any",
   "icons": [
     {
-      "src": "/logo.webp",
-      "sizes": "192x192",
-      "type": "image/webp",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/logo.webp",
-      "sizes": "512x512",
-      "type": "image/webp",
+      "src": "/M.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ]
