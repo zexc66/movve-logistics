@@ -1,3 +1,4 @@
+/* global process */
 import workboxBuild from 'workbox-build'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -18,4 +19,7 @@ const buildSW = () => {
   })
 }
 
-buildSW()
+buildSW().catch((err) => {
+  console.error('Service worker build failed:', err)
+  process.exit(1)
+})

@@ -79,18 +79,14 @@
     const nav = document.querySelector('.nav');
     if (!nav) return;
     
-    let lastScroll = 0;
-    
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
-      
+
       if (currentScroll > 50) {
         nav.classList.add('scrolled');
       } else {
         nav.classList.remove('scrolled');
       }
-      
-      lastScroll = currentScroll;
     }, { passive: true });
     
     // Active page highlighting
