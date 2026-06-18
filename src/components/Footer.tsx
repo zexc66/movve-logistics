@@ -94,9 +94,9 @@ export function Footer() {
 
           <div className="lg:col-span-4 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-white font-bold mb-6">
+              <h2 className="text-white font-bold mb-6">
                 {footerLinks.platform.title}
-              </h3>
+              </h2>
               <ul className="space-y-3">
                 {footerLinks.platform.links.map((link) => (
                   <li key={link.label}>
@@ -112,9 +112,9 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="text-white font-bold mb-6">
+              <h2 className="text-white font-bold mb-6">
                 {footerLinks.company.title}
-              </h3>
+              </h2>
               <ul className="space-y-3">
                 {footerLinks.company.links.map((link) => (
                   <li key={link.label}>
@@ -130,9 +130,9 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="text-white font-bold mb-6">
+              <h2 className="text-white font-bold mb-6">
                 {footerLinks.resources.title}
-              </h3>
+              </h2>
               <ul className="space-y-3">
                 {footerLinks.resources.links.map((link) => (
                   <li key={link.label}>
@@ -148,9 +148,9 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="text-white font-bold mb-6">
+              <h2 className="text-white font-bold mb-6">
                 {footerLinks.legal.title}
-              </h3>
+              </h2>
               <ul className="space-y-3">
                 {footerLinks.legal.links.map((link) => (
                   <li key={link.label}>
