@@ -314,3 +314,22 @@ html {
   mask-composite: exclude;
   pointer-events: none;
 }
+
+@media print {
+  nav, footer, .skip-link, [aria-label="Toggle menu"] {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+  }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
