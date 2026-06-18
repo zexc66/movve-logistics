@@ -139,7 +139,7 @@ export function Contact() {
               </p>
 
               {submitStatus === 'success' && (
-                <div className="mb-8 p-6 bg-emerald-50 border-2 border-emerald-200 rounded-xl">
+                <div role="status" className="mb-8 p-6 bg-emerald-50 border-2 border-emerald-200 rounded-xl">
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg aria-hidden="true" className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -155,7 +155,7 @@ export function Contact() {
               )}
 
               <GlassCard variant="light" className="p-8 md:p-10">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} aria-busy={isSubmitting} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-3">Name *</label>
                   <input type="text" id="name" name="name" autoComplete="name" value={formData.name} onChange={handleChange} required placeholder="John Smith" disabled={isSubmitting} className={inputClasses} />
