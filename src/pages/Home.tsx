@@ -177,7 +177,7 @@ export function Home() {
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-4 p-5 bg-slate-50 rounded-xl border border-slate-200 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10">
                   <div className="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
@@ -191,7 +191,7 @@ export function Home() {
 
                 <div className="flex items-center gap-4 p-5 bg-slate-50 rounded-xl border border-slate-200 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
                   <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" className="w-6 h-6 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
@@ -205,7 +205,7 @@ export function Home() {
 
                 <div className="flex items-center gap-4 p-5 bg-slate-50 rounded-xl border border-slate-200 hover:border-amber-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/10">
                   <div className="w-12 h-12 bg-amber-500/10 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" className="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 012 2v2.945M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
@@ -234,7 +234,7 @@ export function Home() {
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   <span>Get Started</span>
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </Link>
@@ -368,7 +368,7 @@ export function Home() {
 
                   {/* Hover indicator */}
                   <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
@@ -411,7 +411,7 @@ export function Home() {
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 <span>View All Services</span>
-                <svg
+                <svg aria-hidden="true"
                   className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
@@ -551,7 +551,7 @@ export function Home() {
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 <span>Request Demo</span>
-                <svg
+                <svg aria-hidden="true"
                   className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"

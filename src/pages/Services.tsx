@@ -311,7 +311,7 @@ export function Services() {
                     className={`px-6 py-3 bg-slate-900 text-white font-medium ${cls.btn} hover:scale-105 hover:shadow-lg transition-all duration-300 rounded-lg inline-flex items-center gap-2`}
                   >
                     <span>Learn More</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>
@@ -365,7 +365,7 @@ export function Services() {
                 return (
                 <div key={benefit.title} className="benefit-card bg-slate-800 p-8 border border-slate-700 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/10 transition-all duration-300">
                   <div className={`w-12 h-12 ${bgCls} rounded-lg flex items-center justify-center mb-4`}>
-                    <svg className={`w-6 h-6 ${textCls}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" className={`w-6 h-6 ${textCls}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       {benefit.icon === 'scale' && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l16 0m0 0l16 0M4 12v8m0 0h4m-4 0h4m-4 0h16M4 16v4m0 0h4m-4 0h4M4 4v4m0 0h4m-4 0h4M20 4h4" />}
                       {benefit.icon === 'check-circle' && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />}
                       {benefit.icon === 'link' && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l10-10a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-10 10a4 4 0 005.656 0z" />}
@@ -402,7 +402,7 @@ export function Services() {
               style={{ fontFamily: 'var(--font-display)' }}
             >
               <span>Contact Our Team</span>
-              <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg aria-hidden="true" className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Link>

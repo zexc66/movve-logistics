@@ -148,7 +148,7 @@ export function Hero() {
               className="group px-10 py-5 bg-white text-slate-900 font-semibold text-base hover:bg-slate-50 transition-all duration-300 rounded-lg inline-flex items-center justify-center gap-3 hover:scale-105 hover:shadow-lg hover:shadow-white/20"
             >
               <span>Request Partnership</span>
-              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg aria-hidden="true" className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Link>
@@ -217,7 +217,7 @@ export function Hero() {
                     Example: MOVVE123456 or test
                   </p>
                   <div className="mt-3 flex items-center gap-2 text-sm text-slate-400">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7" />
                     </svg>
                     <span>Real-time visibility</span>
@@ -226,7 +226,7 @@ export function Hero() {
 
                 <div className="flex items-center gap-6 text-sm text-slate-400">
                   <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2V5a2 2 0 012-2h2a2 2 0 012 2v6a2 2 0 01-2 2v3a2 2 0 002 2h2a2 2 0 002 2v-5a2 2 0 012-2h-2a2 2 0 012-2v-3a2 2 0 00-2-2z" />
                     </svg>
                     <span>Predictive ETAs</span>
