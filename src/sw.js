@@ -34,7 +34,11 @@ self.addEventListener('fetch', (event) => {
           })
           return response
         })
-        .catch(() => caches.match(request))
+        .catch(() =>
+          caches.match(request).then(
+            (cached) => cached || caches.match('/')
+          )
+        )
     )
     return
   }
@@ -43,18 +47,20 @@ self.addEventListener('fetch', (event) => {
     caches.match(request).then((cached) => {
       return (
         cached ||
-        fetch(request).then((response) => {
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response
-          }
+          fetch(request)
+            .then((response) => {
+              if (!response || response.status !== 200 || response.type !== 'basic') {
+                return response
+              }
 
-          const responseToCache = response.clone()
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(request, responseToCache)
-          })
+              const responseToCache = response.clone()
+              caches.open(CACHE_NAME).then((cache) => {
+                cache.put(request, responseToCache)
+              })
 
-          return response
-        })
+              return response
+            })
+            .catch(() => new Response('', { status: 504, statusText: 'Gateway Timeout' }))
       )
     })
   )
