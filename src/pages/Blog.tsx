@@ -185,9 +185,9 @@ export function Blog() {
             {/* Sidebar */}
             <aside className="lg:col-span-1 mb-12 lg:mb-0">
               <div className="sticky top-28 bg-white border border-slate-200 p-8 rounded-2xl shadow-sm">
-                <h3 className="text-lg font-bold text-slate-900 mb-6 uppercase tracking-wider text-xs" style={{ fontFamily: 'var(--font-display)' }}>
+                <h2 className="text-lg font-bold text-slate-900 mb-6 uppercase tracking-wider text-xs" style={{ fontFamily: 'var(--font-display)' }}>
                   Categories
-                </h3>
+                </h2>
                 <div className="space-y-1">
                   {categories.map((category) => (
                     <button

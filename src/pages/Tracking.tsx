@@ -270,9 +270,9 @@ export function Tracking() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-red-900 mb-2">
+                    <h2 className="text-xl font-bold text-red-900 mb-2">
                       Shipment Not Found
-                    </h3>
+                    </h2>
                     <p className="text-red-700">
                       No shipment found with tracking number "{trackingNumber}". Please check the number
                       and try again. For assistance, contact our support team.
@@ -337,9 +337,9 @@ export function Tracking() {
                 {/* Timeline */}
                 <GlassCard variant="light" className="!bg-white !border-slate-200 !shadow-lg">
                 <div ref={timelineRef} className="p-10">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-8" style={{ fontFamily: 'var(--font-display)' }}>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-8" style={{ fontFamily: 'var(--font-display)' }}>
                     Shipment Timeline
-                  </h3>
+                  </h2>
                   <div className="space-y-8">
                     {shipmentData.timeline.map((event, index) => (
                       <div key={index} className="timeline-item flex gap-6">
@@ -372,9 +372,9 @@ export function Tracking() {
 
             {/* Help Text */}
             <div ref={helpRef} className="mt-12 p-8 bg-slate-100 border border-slate-200 rounded-lg">
-              <h3 className="text-xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+              <h2 className="text-xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'var(--font-display)' }}>
                 Need Help?
-              </h3>
+              </h2>
               <div className="space-y-3 text-slate-600">
                 <p className="flex items-start gap-3">
                   <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
