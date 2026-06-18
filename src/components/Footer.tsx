@@ -102,7 +102,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="hover:text-white transition-colors"
+                      className="inline-block py-1 hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -120,7 +120,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="hover:text-white transition-colors"
+                      className="inline-block py-1 hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -138,7 +138,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="hover:text-white transition-colors"
+                      className="inline-block py-1 hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -156,7 +156,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="hover:text-white transition-colors"
+                      className="inline-block py-1 hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -177,14 +177,14 @@ export function Footer() {
             <div className="flex items-center gap-6">
               <a
                 href="#"
-                className="hover:text-white transition-colors"
+                className="inline-block py-1 hover:text-white transition-colors"
               >
                 Privacy Settings
               </a>
               <span className="text-slate-700">•</span>
               <a
                 href="#"
-                className="hover:text-white transition-colors"
+                className="inline-block py-1 hover:text-white transition-colors"
               >
                 Cookie Preferences
               </a>
