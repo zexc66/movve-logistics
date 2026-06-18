@@ -27,6 +27,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
     }
   }, [isMenuOpen])
 
+  useEffect(() => {
+    if (!isMenuOpen) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsMenuOpen(false)
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isMenuOpen])
+
   const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
