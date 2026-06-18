@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { Footer } from './Footer'
@@ -14,6 +14,10 @@ function ScrollToTop() {
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
+
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const wasMenuOpen = useRef(false)
 
   const { scrollY } = useScroll()
   const navOpacity = useTransform(scrollY, [0, 50], [1, 0.95])
@@ -34,6 +38,39 @@ export function Layout({ children }: { children: React.ReactNode }) {
     }
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isMenuOpen])
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      wasMenuOpen.current = true
+      const firstLink = menuRef.current?.querySelector('a')
+      firstLink?.focus()
+    } else if (wasMenuOpen.current) {
+      wasMenuOpen.current = false
+      menuButtonRef.current?.focus()
+    }
+  }, [isMenuOpen])
+
+  useEffect(() => {
+    if (!isMenuOpen) return
+    const menu = menuRef.current
+    if (!menu) return
+    const handleTabKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return
+      const focusable = menu.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
+      if (focusable.length === 0) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener('keydown', handleTabKey)
+    return () => document.removeEventListener('keydown', handleTabKey)
   }, [isMenuOpen])
 
   const navLinks = [
@@ -108,9 +145,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
                 {/* Mobile menu button */}
                 <button
+                  ref={menuButtonRef}
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="md:hidden text-slate-400 hover:text-white transition-colors duration-200 p-3"
                   aria-label="Toggle menu"
+                  aria-expanded={isMenuOpen}
+                  aria-controls="mobile-menu"
                 >
                   <motion.svg
                     width="24"
@@ -143,6 +183,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            ref={menuRef}
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
