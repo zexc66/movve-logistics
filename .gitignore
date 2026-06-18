@@ -60,3 +60,4 @@ lerna-debug.log*
 .temp
 .tmp
 .vercel
+.omo/
