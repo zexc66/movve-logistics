@@ -40,7 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ScrollToTop />
-      {/* Double-bezel navigation */}
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <motion.nav
         aria-label="Main navigation"
         style={{ opacity: navOpacity, backdropFilter: `blur(${navBlur}px)`, zIndex: 'var(--z-fixed)' }}
@@ -191,7 +191,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
 
-      <main className="pt-32">{children}</main>
+      <main id="main-content" className="pt-32">{children}</main>
       <Footer />
     </>
   )
