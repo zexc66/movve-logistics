@@ -8,8 +8,10 @@ import { ParticleBackground } from '@/components/ParticleBackground'
 import { MagneticButton } from '@/components/MagneticButton'
 
 gsap.registerPlugin(ScrollTrigger)
+import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function Contact() {
+  useDocumentTitle('Contact — MOVVE')
   const [formData, setFormData] = useState({
     name: '',
     email: '',

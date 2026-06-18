@@ -9,8 +9,10 @@ import { GlassCard } from '@/components/GlassCard'
 import { ParticleBackground } from '@/components/ParticleBackground'
 
 gsap.registerPlugin(ScrollTrigger)
+import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function Careers() {
+  useDocumentTitle('Careers — MOVVE')
   const heroRef = useRef<HTMLElement>(null)
   const benefitsRef = useRef<HTMLElement>(null)
   const jobsRef = useRef<HTMLElement>(null)

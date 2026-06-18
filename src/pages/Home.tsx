@@ -10,8 +10,10 @@ import { DashboardWidgets } from '../components/DashboardWidgets'
 import { ParticleBackground } from '../components/ParticleBackground'
 
 gsap.registerPlugin(ScrollTrigger)
+import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function Home() {
+  useDocumentTitle('MOVVE — Enterprise Logistics Platform')
   const trustSectionRef = useRef<HTMLElement>(null)
   const clientRosterRef = useRef<HTMLElement>(null)
   const featuresSectionRef = useRef<HTMLElement>(null)

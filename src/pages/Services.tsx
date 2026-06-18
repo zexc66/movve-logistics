@@ -7,8 +7,10 @@ import { AIR_FREIGHT, OCEAN_FREIGHT, GROUND_TRANSPORT, WAREHOUSING, CUSTOMS_BROK
 import { WorldMap } from '../components/WorldMap'
 
 gsap.registerPlugin(ScrollTrigger)
+import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function Services() {
+  useDocumentTitle('Logistics Services — MOVVE')
   const headerRef = useRef<HTMLElement>(null)
   const servicesGridRef = useRef<HTMLElement>(null)
   const excellenceSectionRef = useRef<HTMLElement>(null)

@@ -7,8 +7,10 @@ import { PACKAGE_DELIVERY } from '@/utils/images'
 import { GlassCard } from '../components/GlassCard'
 
 gsap.registerPlugin(ScrollTrigger)
+import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function Tracking() {
+  useDocumentTitle('Track Shipment — MOVVE')
   const navigate = useNavigate()
   const headerRef = useRef<HTMLElement>(null)
   const formSectionRef = useRef<HTMLDivElement>(null)

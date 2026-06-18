@@ -6,8 +6,10 @@ import { BLOG_AI_LOGISTICS, BLOG_SUSTAINABILITY, BLOG_COLD_CHAIN, BLOG_GLOBAL_TR
 import { ParticleBackground } from '../components/ParticleBackground'
 
 gsap.registerPlugin(ScrollTrigger)
+import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function Blog() {
+  useDocumentTitle('Blog — MOVVE')
   const heroRef = useRef<HTMLElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
   const newsletterRef = useRef<HTMLElement>(null)

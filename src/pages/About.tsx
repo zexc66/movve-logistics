@@ -8,8 +8,10 @@ import { ParticleBackground } from '../components/ParticleBackground'
 import { GlassCard } from '../components/GlassCard'
 
 gsap.registerPlugin(ScrollTrigger)
+import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function About() {
+  useDocumentTitle('About — MOVVE')
   const headerRef = useRef<HTMLElement>(null)
   const missionRef = useRef<HTMLElement>(null)
   const visionRef = useRef<HTMLElement>(null)
