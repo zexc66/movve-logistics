@@ -173,7 +173,7 @@ img {
 
 /* Smooth Scrolling */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 /* Reduced Motion */

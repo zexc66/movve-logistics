@@ -126,6 +126,8 @@ export function WorldMap() {
               />
               <circle
                 data-pulse={i}
+                cx={r.from.x}
+                cy={r.from.y}
                 r="0.7"
                 fill="currentColor"
                 className="text-emerald-300 drop-shadow-[0_0_4px_rgba(52,211,153,0.8)]"
