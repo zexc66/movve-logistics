@@ -20,26 +20,44 @@ self.addEventListener('activate', (event) => {
 })
 
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      if (response) {
-        return response
-      }
-      return fetch(event.request).then((response) => {
-        if (!response || response.status !== 200 || response.type !== 'basic') {
+  const { request } = event
+
+  if (request.method !== 'GET') return
+
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          const responseToCache = response.clone()
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, responseToCache)
+          })
           return response
-        }
-
-        const responseToCache = response.clone()
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseToCache)
         })
+        .catch(() => caches.match(request))
+    )
+    return
+  }
 
-        return response
-      })
+  event.respondWith(
+    caches.match(request).then((cached) => {
+      return (
+        cached ||
+        fetch(request).then((response) => {
+          if (!response || response.status !== 200 || response.type !== 'basic') {
+            return response
+          }
+
+          const responseToCache = response.clone()
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, responseToCache)
+          })
+
+          return response
+        })
+      )
     })
   )
 })
 
-// Workbox injection point
 self.__WB_MANIFEST = []
