@@ -70,11 +70,15 @@ export function Contact() {
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
-    setTimeout(() => {
+    try {
+      await new Promise<void>((resolve) => setTimeout(resolve, 2000))
       setSubmitStatus('success')
-      setIsSubmitting(false)
       setFormData({ name: '', email: '', company: '', message: '' })
-    }, 2000)
+    } catch {
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (
@@ -90,7 +94,7 @@ export function Contact() {
     { city: 'Singapore', address: 'Marina Bay Financial Centre, Tower 3', phone: '+65 6789 0123', email: 'sg@movve.com', region: 'APAC' },
   ]
 
-  const inputClasses = 'w-full px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 disabled:bg-slate-50 disabled:cursor-not-allowed transition-all duration-300 rounded-xl focus:shadow-lg focus:shadow-emerald-500/10'
+  const inputClasses = 'w-full px-6 py-4 bg-white border-2 border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 disabled:bg-slate-50 disabled:cursor-not-allowed transition-all duration-300 rounded-xl focus:shadow-lg focus:shadow-emerald-500/10'
 
   return (
     <>
@@ -149,6 +153,22 @@ export function Contact() {
                     <div>
                       <h3 className="text-lg font-bold text-emerald-900 mb-1">Message Sent</h3>
                       <p className="text-emerald-700">Our team will respond within 24 hours.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div role="alert" className="mb-8 p-6 bg-red-50 border-2 border-red-200 rounded-xl">
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg aria-hidden="true" className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-red-900 mb-1">Something went wrong</h3>
+                      <p className="text-red-700">Please try again or email us directly at contact@movve.com</p>
                     </div>
                   </div>
                 </div>
