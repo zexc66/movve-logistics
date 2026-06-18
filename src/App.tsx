@@ -25,7 +25,7 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boole
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-950 text-white">
+        <div role="alert" className="min-h-screen flex items-center justify-center bg-slate-950 text-white">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">Something went wrong</h1>
             <p className="text-slate-400 mb-6">Please refresh the page to try again.</p>
@@ -64,8 +64,8 @@ function App() {
       <MotionConfig reducedMotion="user">
         <Layout>
           <Suspense fallback={
-            <div className="min-h-[60vh] flex items-center justify-center">
-              <div className="w-10 h-10 border-2 border-slate-700 border-t-emerald-500 rounded-full animate-spin" />
+            <div role="status" aria-label="Loading page" className="min-h-[60vh] flex items-center justify-center">
+              <div aria-hidden="true" className="w-10 h-10 border-2 border-slate-700 border-t-emerald-500 rounded-full animate-spin" />
             </div>
           }>
             <Routes>
