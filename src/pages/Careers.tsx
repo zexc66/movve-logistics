@@ -110,7 +110,7 @@ export function Careers() {
       <section ref={heroRef} className="relative py-28 bg-slate-950 overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
-          <img src={TEAM_CULTURE} alt="MOVVE team collaborating in a modern logistics operations center" className="w-full h-full object-cover" loading="eager" />
+          <img src={TEAM_CULTURE} alt="MOVVE team collaborating in a modern logistics operations center" className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
           <div className="absolute inset-0 bg-slate-950/80" />
         </div>
         <div className="absolute inset-0 opacity-20">

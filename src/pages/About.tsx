@@ -230,7 +230,7 @@ export function About() {
               </p>
             </div>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              <img src={ABOUT_HERO} alt="MOVVE logistics operations center" className="w-full h-full object-cover" loading="eager" />
+              <img src={ABOUT_HERO} alt="MOVVE logistics operations center" className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
             </div>
           </div>

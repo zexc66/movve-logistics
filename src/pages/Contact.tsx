@@ -101,7 +101,7 @@ export function Contact() {
       <section className="bg-[#0f172a] py-32 px-8 lg:px-16 relative overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
-          <img src={CORPORATE_OFFICE} alt="MOVVE corporate office building exterior" className="w-full h-full object-cover" loading="eager" />
+          <img src={CORPORATE_OFFICE} alt="MOVVE corporate office building exterior" className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
           <div className="absolute inset-0 bg-[#0f172a]/85" />
         </div>
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl" />
