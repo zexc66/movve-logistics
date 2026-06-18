@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function Tracking() {
-  useDocumentTitle('Track Shipment — MOVVE')
+  useDocumentTitle('Track Shipment — MOVVE', 'Track your shipments in real-time with MOVVE GPS integration. Live status updates, estimated delivery, and full chain-of-custody visibility.')
   const navigate = useNavigate()
   const headerRef = useRef<HTMLElement>(null)
   const formSectionRef = useRef<HTMLDivElement>(null)

@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function Contact() {
-  useDocumentTitle('Contact — MOVVE')
+  useDocumentTitle('Contact — MOVVE', 'Contact MOVVE for enterprise logistics solutions. Our team responds within 24 hours. Offices in San Francisco, Singapore, and Rotterdam.')
   const [formData, setFormData] = useState({
     name: '',
     email: '',

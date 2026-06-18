@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function About() {
-  useDocumentTitle('About — MOVVE')
+  useDocumentTitle('About — MOVVE', 'MOVVE is redefining global logistics with technology, sustainability, and a team of 500+ logistics experts across 12 countries.')
   const headerRef = useRef<HTMLElement>(null)
   const missionRef = useRef<HTMLElement>(null)
   const visionRef = useRef<HTMLElement>(null)

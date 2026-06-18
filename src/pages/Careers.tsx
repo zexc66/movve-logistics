@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function Careers() {
-  useDocumentTitle('Careers — MOVVE')
+  useDocumentTitle('Careers — MOVVE', 'Build the future of logistics with MOVVE. Engineering, operations, and product roles available. Competitive compensation and global impact.')
   const heroRef = useRef<HTMLElement>(null)
   const benefitsRef = useRef<HTMLElement>(null)
   const jobsRef = useRef<HTMLElement>(null)

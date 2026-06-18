@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function Home() {
-  useDocumentTitle('MOVVE — Enterprise Logistics Platform')
+  useDocumentTitle('MOVVE — Enterprise Logistics Platform', 'MOVVE delivers enterprise-grade freight, warehousing, and supply chain solutions with real-time tracking and 99.7% on-time delivery.')
   const trustSectionRef = useRef<HTMLElement>(null)
   const clientRosterRef = useRef<HTMLElement>(null)
   const featuresSectionRef = useRef<HTMLElement>(null)

@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export function Services() {
-  useDocumentTitle('Logistics Services — MOVVE')
+  useDocumentTitle('Logistics Services — MOVVE', 'Comprehensive logistics services including freight forwarding, warehousing, last-mile delivery, and customs clearance powered by AI optimization.')
   const headerRef = useRef<HTMLElement>(null)
   const servicesGridRef = useRef<HTMLElement>(null)
   const excellenceSectionRef = useRef<HTMLElement>(null)
