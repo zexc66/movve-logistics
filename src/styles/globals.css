@@ -322,6 +322,12 @@ html {
   pointer-events: none;
 }
 
+/* Form Validation States - only shows error after user interaction */
+input:not(:placeholder-shown):invalid,
+textarea:not(:placeholder-shown):invalid {
+  border-color: #ef4444;
+}
+
 @media print {
   nav, footer, .skip-link, [aria-label="Toggle menu"] {
     display: none !important;
