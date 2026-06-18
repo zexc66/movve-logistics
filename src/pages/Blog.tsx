@@ -232,7 +232,7 @@ export function Blog() {
                   >
                     {/* Blog thumbnail image */}
                     <div className="relative aspect-[16/10] overflow-hidden">
-                      <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                      <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                       <div className="absolute top-4 left-4">
                         <span className={`px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-lg backdrop-blur-sm bg-white/90 ${categoryColors[post.category] || 'bg-slate-100 text-slate-700'}`}>

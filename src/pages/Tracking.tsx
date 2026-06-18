@@ -196,7 +196,7 @@ export function Tracking() {
       {/* Header */}
       <section ref={headerRef} className="py-24 bg-slate-900 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={PACKAGE_DELIVERY} alt="MOVVE delivery courier handing a package to a customer" className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
+          <img src={PACKAGE_DELIVERY} alt="MOVVE delivery courier handing a package to a customer" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
           <div className="absolute inset-0 bg-slate-900/85" />
         </div>
         <div className="container mx-auto px-4 relative z-10">

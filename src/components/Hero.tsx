@@ -97,7 +97,7 @@ export function Hero() {
     <section className="min-h-[100dvh] bg-[#050812] relative overflow-hidden">
       {/* Background image with dark overlay */}
       <div className="absolute inset-0">
-        <img src={HERO_PORT_AERIAL} alt="Aerial view of MOVVE global shipping port with cargo containers and freight vessels" className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
+        <img src={HERO_PORT_AERIAL} alt="Aerial view of MOVVE global shipping port with cargo containers and freight vessels" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
         <div className="absolute inset-0 bg-[#050812]/85" />
       </div>
 

@@ -230,7 +230,7 @@ export function About() {
               </p>
             </div>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              <img src={ABOUT_HERO} alt="MOVVE logistics operations center" className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
+              <img src={ABOUT_HERO} alt="MOVVE logistics operations center" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
             </div>
           </div>
@@ -256,7 +256,7 @@ export function About() {
               </p>
             </div>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-              <img src={WAREHOUSE_OPERATIONS} alt="Warehouse operations" className="w-full h-full object-cover" loading="lazy" />
+              <img src={WAREHOUSE_OPERATIONS} alt="Warehouse operations" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -267,7 +267,7 @@ export function About() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl order-2 md:order-1">
-              <img src={TEAM_OPERATIONS} alt="Team collaboration at MOVVE" className="w-full h-full object-cover" loading="lazy" />
+              <img src={TEAM_OPERATIONS} alt="Team collaboration at MOVVE" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
             <div className="max-w-xl ml-auto order-1 md:order-2">
               <div className="flex items-center gap-4 mb-6">
