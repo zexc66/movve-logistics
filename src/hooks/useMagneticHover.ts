@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react'
+import { prefersReducedMotion } from '@/utils/reducedMotion'
 
 export function useMagneticHover<T extends HTMLElement = HTMLDivElement>(threshold = 30) {
   const ref = useRef<T | null>(null)
@@ -6,6 +7,8 @@ export function useMagneticHover<T extends HTMLElement = HTMLDivElement>(thresho
   useEffect(() => {
     const el = ref.current
     if (!el) return
+
+    if (prefersReducedMotion()) return
 
     let rafId: number
 

@@ -227,6 +227,13 @@ html {
   }
 }
 
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
 /* Premium Typography Classes */
 .display-hero {
   font-size: var(--text-hero);

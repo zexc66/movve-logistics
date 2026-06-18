@@ -14,6 +14,7 @@ export const MagneticButton = forwardRef<HTMLButtonElement, MagneticButtonProps>
       const ripple = document.createElement('span')
       const rect = e.currentTarget.getBoundingClientRect()
       ripple.style.cssText = `position:absolute;border-radius:50%;background:rgba(255,255,255,0.4);transform:scale(0);animation:ripple 0.6s linear;pointer-events:none;left:${e.clientX - rect.left}px;top:${e.clientY - rect.top}px;width:100px;height:100px;margin-left:-50px;margin-top:-50px;`
+      ripple.setAttribute('aria-hidden', 'true')
       e.currentTarget.appendChild(ripple)
       setTimeout(() => ripple.remove(), 600)
       onClick?.(e)
