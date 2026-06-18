@@ -124,7 +124,7 @@ export function Contact() {
             <div>
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-[2px] bg-emerald-500" />
-                <span className="text-emerald-600 text-sm font-semibold tracking-widest uppercase">Contact Form</span>
+                <span className="text-emerald-700 text-sm font-semibold tracking-widest uppercase">Contact Form</span>
               </div>
               <h2
                 className="text-4xl font-bold text-slate-900 mb-4"
@@ -185,7 +185,7 @@ export function Contact() {
             <div ref={locationsRef}>
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-[2px] bg-emerald-500" />
-                <span className="text-emerald-600 text-sm font-semibold tracking-widest uppercase">Global Offices</span>
+                <span className="text-emerald-700 text-sm font-semibold tracking-widest uppercase">Global Offices</span>
               </div>
               <h2
                 className="text-4xl font-bold text-slate-900 mb-4"
@@ -203,14 +203,14 @@ export function Contact() {
                     <div className="flex items-start justify-between">
                       <div>
                         <h3 className="text-xl font-bold text-slate-900 mb-1" style={{ fontFamily: 'var(--font-display)' }}>{location.city}</h3>
-                        <span className="text-xs font-medium text-emerald-600 tracking-wider uppercase">{location.region}</span>
+                        <span className="text-xs font-medium text-emerald-700 tracking-wider uppercase">{location.region}</span>
                       </div>
                       <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse mt-2" />
                     </div>
                     <div className="mt-4 space-y-2 text-sm text-slate-500">
                       <p>{location.address}</p>
                       <p>{location.phone}</p>
-                      <p className="text-emerald-600">{location.email}</p>
+                      <p className="text-emerald-700">{location.email}</p>
                     </div>
                   </div>
                 ))}

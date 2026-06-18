@@ -241,7 +241,7 @@ export function Tracking() {
                 <button
                   type="button"
                   onClick={handleDemo}
-                  className="mt-3 text-sm font-semibold text-emerald-600 hover:text-emerald-700 inline-flex items-center gap-2 transition-colors"
+                  className="mt-3 text-sm font-semibold text-emerald-700 hover:text-emerald-800 inline-flex items-center gap-2 transition-colors"
                 >
                   <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -296,7 +296,7 @@ export function Tracking() {
                       </p>
                       <div className="flex items-center gap-3">
                         <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
-                        <p className="text-2xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors duration-300">
+                        <p className="text-2xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors duration-300">
                           {shipmentData.status}
                         </p>
                       </div>
@@ -326,7 +326,7 @@ export function Tracking() {
                       <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
                         <div className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full" style={{ width: '75%' }} />
                       </div>
-                      <span className="text-sm font-semibold text-emerald-600">75%</span>
+                      <span className="text-sm font-semibold text-emerald-700">75%</span>
                     </div>
                     <div className="flex justify-between mt-2 text-xs text-slate-500">
                       <span>Picked Up</span>

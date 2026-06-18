@@ -174,7 +174,7 @@ export function Careers() {
               return (
                 <GlassCard key={index} variant="light" className="benefit-card group p-8 hover:shadow-lg hover:shadow-emerald-500/5">
                   <div className="w-14 h-14 bg-emerald-100 group-hover:bg-emerald-200 rounded-xl flex items-center justify-center mb-6 transition-colors">
-                    <Icon className="text-emerald-600" size={24} />
+                    <Icon className="text-emerald-700" size={24} />
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2" style={{ fontFamily: 'var(--font-display)' }}>{benefit.title}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>{benefit.description}</p>
@@ -201,7 +201,7 @@ export function Careers() {
             {jobs.map((job) => (
               <div key={job.id} className="job-card group bg-white p-8 rounded-2xl border border-slate-200 hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
                     {job.title}
                   </h3>
                   <span className="bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg flex-shrink-0 ml-4">

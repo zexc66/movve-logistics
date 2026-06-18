@@ -196,7 +196,7 @@ export function Blog() {
                       key={category.name}
                       className="w-full flex justify-between items-center px-4 py-3 hover:bg-slate-50 transition-colors rounded-xl text-left group"
                     >
-                      <span className="font-medium text-slate-700 group-hover:text-emerald-600 transition-colors">{category.name}</span>
+                      <span className="font-medium text-slate-700 group-hover:text-emerald-700 transition-colors">{category.name}</span>
                       <span className="text-xs text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full font-semibold">{category.count}</span>
                     </button>
                   ))}
@@ -245,14 +245,14 @@ export function Blog() {
                         <span className="w-1 h-1 bg-slate-300 rounded-full" />
                         <span>{post.readTime}</span>
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-emerald-600 transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                      <h3 className="text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-emerald-700 transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
                         {post.title}
                       </h3>
                       <p className="text-slate-500 mb-6 leading-relaxed text-sm" style={{ fontFamily: 'var(--font-body)' }}>
                         {post.excerpt}
                       </p>
                       <div className="flex items-center justify-between">
-                        <button className="text-emerald-600 font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                        <button className="text-emerald-700 font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                           <span>Read Article</span>
                           <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -266,7 +266,7 @@ export function Blog() {
               </div>
 
               <div className="text-center mt-16">
-                <button className="px-10 py-4 bg-white border-2 border-slate-200 text-slate-700 font-semibold hover:border-emerald-500 hover:text-emerald-600 transition-all duration-300 rounded-xl">
+                <button className="px-10 py-4 bg-white border-2 border-slate-200 text-slate-700 font-semibold hover:border-emerald-500 hover:text-emerald-700 transition-all duration-300 rounded-xl">
                   Load More Articles
                 </button>
               </div>
