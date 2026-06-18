@@ -86,6 +86,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     <Link
                       key={link.path}
                       to={link.path}
+                      aria-current={location.pathname === link.path ? 'page' : undefined}
                       className={`text-sm font-medium transition-colors duration-200 cursor-pointer ${
                         location.pathname === link.path
                           ? 'text-white'
@@ -164,6 +165,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   <Link
                     to={link.path}
                     onClick={() => setIsMenuOpen(false)}
+                    aria-current={location.pathname === link.path ? 'page' : undefined}
                     className={`text-2xl font-medium transition-colors py-4 px-8 rounded-lg cursor-pointer ${
                       location.pathname === link.path
                         ? 'text-white bg-slate-800'
