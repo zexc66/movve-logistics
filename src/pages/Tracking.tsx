@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { prefersReducedMotion } from '@/utils/reducedMotion'
 import { PACKAGE_DELIVERY } from '@/utils/images'
 import { GlassCard } from '../components/GlassCard'
 
@@ -30,6 +31,7 @@ export function Tracking() {
   } | null>(null)
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
     // Header - parallax reveal
     if (headerRef.current) {
       const title = headerRef.current.querySelector('h1')

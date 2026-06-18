@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'react'
 import { Hero } from '../components/Hero'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { prefersReducedMotion } from '@/utils/reducedMotion'
 import { LOGISTICS_FACILITY } from '@/utils/images'
 import { WorldMap } from '../components/WorldMap'
 import { DashboardWidgets } from '../components/DashboardWidgets'
@@ -19,6 +20,7 @@ export function Home() {
   const ctaSectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
     // Trust indicators - parallax reveal
     if (trustSectionRef.current) {
       gsap.fromTo(trustSectionRef.current,

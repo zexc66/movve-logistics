@@ -1,4 +1,5 @@
 import { gsap } from 'gsap'
+import { prefersReducedMotion } from '@/utils/reducedMotion'
 import { useRef, useEffect, useState } from 'react'
 
 const metrics = [
@@ -19,6 +20,7 @@ export function DashboardWidgets() {
   const [activeTicker, setActiveTicker] = useState(0)
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
     const tweens: gsap.core.Tween[] = []
 
     countersRef.current.forEach((el, i) => {

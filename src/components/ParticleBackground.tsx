@@ -1,10 +1,12 @@
 import { gsap } from 'gsap'
+import { prefersReducedMotion } from '@/utils/reducedMotion'
 import { useRef, useEffect } from 'react'
 
 export function ParticleBackground({ count = 20 }: { count?: number }) {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
     if (!containerRef.current) return
 
     const particles = containerRef.current.querySelectorAll('.particle')

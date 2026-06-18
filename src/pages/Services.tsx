@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { prefersReducedMotion } from '@/utils/reducedMotion'
 import { AIR_FREIGHT, OCEAN_FREIGHT, GROUND_TRANSPORT, WAREHOUSING, CUSTOMS_BROKERAGE, SUPPLY_CHAIN_INTELLIGENCE } from '@/utils/images'
 import { WorldMap } from '../components/WorldMap'
 
@@ -74,6 +75,7 @@ export function Services() {
   }
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
     // Header - parallax reveal
     if (headerRef.current) {
       const title = headerRef.current.querySelector('h1')

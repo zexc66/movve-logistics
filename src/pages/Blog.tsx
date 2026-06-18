@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { prefersReducedMotion } from '@/utils/reducedMotion'
 import { BLOG_AI_LOGISTICS, BLOG_SUSTAINABILITY, BLOG_COLD_CHAIN, BLOG_GLOBAL_TRADE, BLOG_RESILIENT_SUPPLY, BLOG_ECOMMERCE } from '@/utils/images'
 import { ParticleBackground } from '../components/ParticleBackground'
 
@@ -12,6 +13,7 @@ export function Blog() {
   const newsletterRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
     // Hero reveal
     if (heroRef.current) {
       const els = heroRef.current.querySelectorAll('.reveal-up')

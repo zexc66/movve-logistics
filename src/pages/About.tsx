@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { prefersReducedMotion } from '@/utils/reducedMotion'
 import { ABOUT_HERO, WAREHOUSE_OPERATIONS, TEAM_OPERATIONS } from '@/utils/images'
 import { ParticleBackground } from '../components/ParticleBackground'
 import { GlassCard } from '../components/GlassCard'
@@ -18,6 +19,7 @@ export function About() {
   const ctaRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
     // Header - parallax reveal
     if (headerRef.current) {
       const title = headerRef.current.querySelector('h1')

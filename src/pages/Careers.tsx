@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { prefersReducedMotion } from '@/utils/reducedMotion'
 import { MapPin, Users, Target, Zap, Heart, ArrowRight, Briefcase, Clock } from 'lucide-react'
 import { TEAM_CULTURE } from '@/utils/images'
 import { GlassCard } from '@/components/GlassCard'
@@ -15,6 +16,7 @@ export function Careers() {
   const jobsRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
     // Hero reveal
     if (heroRef.current) {
       const els = heroRef.current.querySelectorAll('.reveal-up')

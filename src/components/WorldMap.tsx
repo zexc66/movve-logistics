@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
+import { prefersReducedMotion } from '@/utils/reducedMotion'
 
 const routes = [
   { from: { x: 20, y: 30 }, to: { x: 80, y: 25 }, delay: 0 },
@@ -21,6 +22,7 @@ export function WorldMap() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
     if (!containerRef.current) return
 
     const ctx = gsap.context(() => {

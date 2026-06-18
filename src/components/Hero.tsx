@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { prefersReducedMotion } from '@/utils/reducedMotion'
 import { HERO_PORT_AERIAL } from '@/utils/images'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -17,6 +18,7 @@ export function Hero() {
   const cardRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
     // Staggered title reveal with premium feel
     const titleTimeline = gsap.timeline()
     titleTimeline

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { prefersReducedMotion } from '@/utils/reducedMotion'
 import { CORPORATE_OFFICE } from '@/utils/images'
 import { GlassCard } from '@/components/GlassCard'
 import { ParticleBackground } from '@/components/ParticleBackground'
@@ -24,6 +25,7 @@ export function Contact() {
   const supportRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
     const tl = gsap.timeline()
 
     tl.fromTo(heroRef.current,
