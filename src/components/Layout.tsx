@@ -87,6 +87,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <>
       <ScrollToTop />
       <a href="#main-content" className="skip-link">Skip to content</a>
+      <header>
       <motion.nav
         aria-label="Main navigation"
         style={{ opacity: navOpacity, backdropFilter: `blur(${navBlur}px)`, zIndex: 'var(--z-fixed)' }}
@@ -178,6 +179,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </motion.nav>
+      </header>
 
       {/* Mobile menu with premium presentation */}
       <AnimatePresence>
