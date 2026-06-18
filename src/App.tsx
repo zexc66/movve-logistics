@@ -2,6 +2,7 @@ import { Routes, Route, Link } from 'react-router-dom'
 import { MotionConfig } from 'framer-motion'
 import { Component, Suspense, lazy, type ErrorInfo, type ReactNode } from 'react'
 import { Layout } from './components/Layout'
+import { useDocumentTitle } from './hooks/useDocumentTitle'
 
 const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })))
 const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })))
@@ -44,6 +45,7 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boole
 }
 
 function NotFound() {
+  useDocumentTitle('Page Not Found — MOVVE', 'The page you are looking for does not exist.', true)
   return (
     <div className="min-h-[60vh] flex items-center justify-center bg-slate-950 text-white">
       <div className="text-center">
