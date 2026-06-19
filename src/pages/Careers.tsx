@@ -10,9 +10,17 @@ import { ParticleBackground } from '@/components/ParticleBackground'
 
 gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useStructuredData } from '@/hooks/useStructuredData'
 
 export function Careers() {
   useDocumentTitle('Careers — MOVVE', 'Build the future of logistics with MOVVE. Engineering, operations, and product roles available. Competitive compensation and global impact.')
+  useStructuredData({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Careers at MOVVE',
+    url: 'https://movve.com/careers',
+    description: 'Build the future of logistics with MOVVE. Engineering, operations, and product roles available.'
+  })
   const heroRef = useRef<HTMLElement>(null)
   const benefitsRef = useRef<HTMLElement>(null)
   const jobsRef = useRef<HTMLElement>(null)

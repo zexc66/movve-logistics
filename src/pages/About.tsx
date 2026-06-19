@@ -9,9 +9,17 @@ import { GlassCard } from '../components/GlassCard'
 
 gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useStructuredData } from '@/hooks/useStructuredData'
 
 export function About() {
   useDocumentTitle('About — MOVVE', 'MOVVE is redefining global logistics with technology, sustainability, and a team of 500+ logistics experts across 12 countries.')
+  useStructuredData({
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About MOVVE',
+    url: 'https://movve.com/about',
+    description: 'MOVVE is redefining global logistics with technology, sustainability, and a team of 500+ logistics experts across 12 countries.'
+  })
   const headerRef = useRef<HTMLElement>(null)
   const missionRef = useRef<HTMLElement>(null)
   const visionRef = useRef<HTMLElement>(null)

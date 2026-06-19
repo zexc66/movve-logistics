@@ -8,9 +8,24 @@ import { WorldMap } from '../components/WorldMap'
 
 gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useStructuredData } from '@/hooks/useStructuredData'
 
 export function Services() {
   useDocumentTitle('Logistics Services — MOVVE', 'Comprehensive logistics services including freight forwarding, warehousing, last-mile delivery, and customs clearance powered by AI optimization.')
+  useStructuredData({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'MOVVE Logistics Services',
+    url: 'https://movve.com/services',
+    itemListElement: [
+      { '@type': 'Service', name: 'Air Freight', description: 'Priority and standard air freight services globally.' },
+      { '@type': 'Service', name: 'Ocean Freight', description: 'FCL and LCL ocean freight with competitive rates.' },
+      { '@type': 'Service', name: 'Ground Transport', description: 'Domestic and cross-border ground transportation.' },
+      { '@type': 'Service', name: 'Warehousing', description: 'Strategic warehousing at major ports worldwide.' },
+      { '@type': 'Service', name: 'Customs Brokerage', description: 'Full customs clearance and compliance services.' },
+      { '@type': 'Service', name: 'Supply Chain Intelligence', description: 'AI-powered supply chain optimization platform.' }
+    ]
+  })
   const headerRef = useRef<HTMLElement>(null)
   const servicesGridRef = useRef<HTMLElement>(null)
   const excellenceSectionRef = useRef<HTMLElement>(null)

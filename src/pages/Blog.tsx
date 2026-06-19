@@ -7,9 +7,17 @@ import { ParticleBackground } from '../components/ParticleBackground'
 
 gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useStructuredData } from '@/hooks/useStructuredData'
 
 export function Blog() {
   useDocumentTitle('Blog — MOVVE', 'Insights on logistics technology, supply chain optimization, and industry trends from the MOVVE team.')
+  useStructuredData({
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'MOVVE Logistics Blog',
+    url: 'https://movve.com/blog',
+    description: 'Insights on logistics technology, supply chain optimization, and industry trends from the MOVVE team.'
+  })
   const heroRef = useRef<HTMLElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
   const newsletterRef = useRef<HTMLElement>(null)

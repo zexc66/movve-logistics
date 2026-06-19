@@ -9,9 +9,16 @@ import { MagneticButton } from '@/components/MagneticButton'
 
 gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useStructuredData } from '@/hooks/useStructuredData'
 
 export function Contact() {
   useDocumentTitle('Contact — MOVVE', 'Contact MOVVE for enterprise logistics solutions. Our team responds within 24 hours. Offices in San Francisco, Singapore, and Rotterdam.')
+  useStructuredData({
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact MOVVE',
+    url: 'https://movve.com/contact'
+  })
   const [formData, setFormData] = useState({
     name: '',
     email: '',

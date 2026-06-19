@@ -11,9 +11,17 @@ import { ParticleBackground } from '../components/ParticleBackground'
 
 gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useStructuredData } from '@/hooks/useStructuredData'
 
 export function Home() {
   useDocumentTitle('MOVVE — Enterprise Logistics Platform', 'MOVVE delivers enterprise-grade freight, warehousing, and supply chain solutions with real-time tracking and 99.7% on-time delivery.')
+  useStructuredData({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'MOVVE',
+    url: 'https://movve.com',
+    description: 'Enterprise-grade freight, warehousing, and supply chain solutions with real-time tracking.'
+  })
   const trustSectionRef = useRef<HTMLElement>(null)
   const clientRosterRef = useRef<HTMLElement>(null)
   const featuresSectionRef = useRef<HTMLElement>(null)
