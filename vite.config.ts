@@ -20,10 +20,13 @@ export default defineConfig({
     sourcemap: 'hidden',
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'animation-vendor': ['framer-motion'],
-          'gsap-vendor': ['gsap'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react-router')) return 'react-vendor'
+            if (id.includes('/react/') || id.includes('/react-dom/')) return 'react-vendor'
+            if (id.includes('framer-motion')) return 'animation-vendor'
+            if (id.includes('gsap')) return 'gsap-vendor'
+          }
         }
       }
     },
