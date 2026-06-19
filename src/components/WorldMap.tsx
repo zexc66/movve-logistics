@@ -81,6 +81,7 @@ export function WorldMap() {
 
   return (
     <div ref={containerRef} className="relative w-full aspect-[2/1] max-w-5xl mx-auto">
+      <span className="sr-only">Global logistics network visualization with hubs in Los Angeles, Rotterdam, Shanghai, Singapore, Dubai, and New York.</span>
       <svg aria-hidden="true" viewBox="0 0 100 50" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
         {/* Dotted world map background */}
         <g className="text-slate-600/40" fill="currentColor">
