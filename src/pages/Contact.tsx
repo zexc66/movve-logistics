@@ -231,8 +231,8 @@ export function Contact() {
                     </div>
                     <div className="mt-4 space-y-2 text-sm text-slate-500">
                       <p>{location.address}</p>
-                      <p>{location.phone}</p>
-                      <p className="text-emerald-700">{location.email}</p>
+                      <a href={`tel:${location.phone.replace(/[^\d+]/g, '')}`} className="block hover:text-emerald-700 transition-colors">{location.phone}</a>
+                      <a href={`mailto:${location.email}`} className="block text-emerald-700 hover:text-emerald-800 transition-colors">{location.email}</a>
                     </div>
                   </div>
                 ))}
