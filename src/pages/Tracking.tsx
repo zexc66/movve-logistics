@@ -8,9 +8,25 @@ import { GlassCard } from '../components/GlassCard'
 
 gsap.registerPlugin(ScrollTrigger)
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
+import { useStructuredData } from '@/hooks/useStructuredData'
 
 export function Tracking() {
   useDocumentTitle('Track Shipment — MOVVE', 'Track your shipments in real-time with MOVVE GPS integration. Live status updates, estimated delivery, and full chain-of-custody visibility.')
+  useStructuredData({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Track Your Shipment',
+    description: 'Track your shipments in real-time with MOVVE GPS integration.',
+    url: 'https://movve.com/tracking',
+    isPartOf: { '@type': 'WebSite', name: 'MOVVE', url: 'https://movve.com' },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://movve.com' },
+        { '@type': 'ListItem', position: 2, name: 'Tracking', item: 'https://movve.com/tracking' },
+      ],
+    },
+  })
   const navigate = useNavigate()
   const headerRef = useRef<HTMLElement>(null)
   const formSectionRef = useRef<HTMLDivElement>(null)
