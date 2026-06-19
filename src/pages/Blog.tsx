@@ -211,6 +211,7 @@ export function Blog() {
                   <div className="flex gap-2">
                     <input
                       type="email"
+                      aria-label="Email address for weekly digest"
                       placeholder="Email"
                       className="flex-1 px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:border-emerald-500 transition-colors"
                     />
@@ -298,6 +299,7 @@ export function Blog() {
             <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
               <input
                 type="email"
+                aria-label="Email address for newsletter subscription"
                 placeholder="Enter your email"
                 className="flex-1 px-6 py-4 bg-slate-800/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all rounded-xl"
               />
