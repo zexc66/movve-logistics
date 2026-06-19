@@ -225,11 +225,15 @@ export function Tracking() {
                   <input
                     type="text"
                     id="tracking-number"
+                    name="tracking-number"
+                    autoComplete="off"
+                    autoCapitalize="characters"
+                    spellCheck={false}
                     value={trackingNumber}
                     onChange={(e) => setTrackingNumber(e.target.value)}
                     placeholder="Enter tracking number (e.g., MOVVE123456)"
                     disabled={trackingStatus === 'processing'}
-                    className="flex-1 px-6 py-4 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 disabled:bg-slate-100 disabled:cursor-not-allowed disabled:border-slate-300 transition-all duration-200 rounded-lg text-lg focus:shadow-lg focus:shadow-emerald-500/10"
+                    className="flex-1 px-6 py-4 bg-white border-2 border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 disabled:bg-slate-100 disabled:cursor-not-allowed disabled:border-slate-300 transition-all duration-200 rounded-lg text-lg focus:shadow-lg focus:shadow-emerald-500/10"
                   />
                   <button
                     type="submit"

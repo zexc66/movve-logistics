@@ -178,15 +178,15 @@ export function Contact() {
               <form onSubmit={handleSubmit} aria-busy={isSubmitting} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-3">Name *</label>
-                  <input type="text" id="name" name="name" autoComplete="name" value={formData.name} onChange={handleChange} required placeholder="John Smith" disabled={isSubmitting} className={inputClasses} />
+                  <input type="text" id="name" name="name" autoComplete="name" inputMode="text" autoCapitalize="words" spellCheck={false} value={formData.name} onChange={handleChange} required placeholder="John Smith" disabled={isSubmitting} className={inputClasses} />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-3">Email *</label>
-                  <input type="email" id="email" name="email" autoComplete="email" value={formData.email} onChange={handleChange} required placeholder="john@company.com" disabled={isSubmitting} className={inputClasses} />
+                  <input type="email" id="email" name="email" autoComplete="email" inputMode="email" spellCheck={false} value={formData.email} onChange={handleChange} required placeholder="john@company.com" disabled={isSubmitting} className={inputClasses} />
                 </div>
                 <div>
                   <label htmlFor="company" className="block text-sm font-semibold text-slate-700 mb-3">Company</label>
-                  <input type="text" id="company" name="company" autoComplete="organization" value={formData.company} onChange={handleChange} placeholder="Your Company" disabled={isSubmitting} className={inputClasses} />
+                  <input type="text" id="company" name="company" autoComplete="organization" spellCheck={false} value={formData.company} onChange={handleChange} placeholder="Your Company" disabled={isSubmitting} className={inputClasses} />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-3">Message *</label>
