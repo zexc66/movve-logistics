@@ -195,6 +195,7 @@ export function Blog() {
                 <div className="space-y-1">
                   {categories.map((category) => (
                     <button
+                      type="button"
                       key={category.name}
                       className="w-full flex justify-between items-center px-4 py-3 hover:bg-slate-50 transition-colors rounded-xl text-left group"
                     >
@@ -208,17 +209,17 @@ export function Blog() {
                 <div className="mt-8 pt-8 border-t border-slate-100">
                   <p className="text-sm font-semibold text-slate-900 mb-3">Weekly Digest</p>
                   <p className="text-xs text-slate-500 mb-4">Get insights delivered to your inbox every Friday.</p>
-                  <div className="flex gap-2">
+                  <form onSubmit={(e) => e.preventDefault()} className="flex gap-2">
                     <input
                       type="email"
                       aria-label="Email address for weekly digest"
                       placeholder="Email"
                       className="flex-1 px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:border-emerald-500 transition-colors"
                     />
-                    <button className="px-4 py-2 bg-emerald-500 text-white text-sm font-semibold rounded-lg hover:bg-emerald-600 transition-colors">
+                    <button type="submit" className="px-4 py-2 bg-emerald-500 text-white text-sm font-semibold rounded-lg hover:bg-emerald-600 transition-colors">
                       Join
                     </button>
-                  </div>
+                  </form>
                 </div>
               </div>
             </aside>
@@ -255,7 +256,7 @@ export function Blog() {
                         {post.excerpt}
                       </p>
                       <div className="flex items-center justify-between">
-                        <button className="text-emerald-700 font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                        <button type="button" className="text-emerald-700 font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                           <span>Read Article</span>
                           <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -269,7 +270,7 @@ export function Blog() {
               </div>
 
               <div className="text-center mt-16">
-                <button className="px-10 py-4 bg-white border-2 border-slate-200 text-slate-700 font-semibold hover:border-emerald-500 hover:text-emerald-700 transition-all duration-300 rounded-xl">
+                <button type="button" className="px-10 py-4 bg-white border-2 border-slate-200 text-slate-700 font-semibold hover:border-emerald-500 hover:text-emerald-700 transition-all duration-300 rounded-xl">
                   Load More Articles
                 </button>
               </div>
@@ -296,7 +297,7 @@ export function Blog() {
               Get the latest logistics insights delivered to your inbox weekly.
             </p>
 
-            <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
               <input
                 type="email"
                 aria-label="Email address for newsletter subscription"

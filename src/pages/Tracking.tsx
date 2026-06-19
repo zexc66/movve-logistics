@@ -405,6 +405,7 @@ export function Tracking() {
               </div>
               <div className="mt-6">
                 <button
+                  type="button"
                   onClick={handleContactSupport}
                   className="px-8 py-3 bg-slate-900 text-white font-semibold hover:bg-emerald-500 hover:scale-105 hover:shadow-xl hover:shadow-emerald-500/30 transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
                 >

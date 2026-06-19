@@ -225,7 +225,7 @@ export function Careers() {
                     {job.type}
                   </div>
                 </div>
-                <button className="w-full bg-slate-900 text-white py-3.5 rounded-xl font-semibold hover:bg-emerald-500 hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300">
+                <button type="button" className="w-full bg-slate-900 text-white py-3.5 rounded-xl font-semibold hover:bg-emerald-500 hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300">
                   Apply Now
                 </button>
               </div>

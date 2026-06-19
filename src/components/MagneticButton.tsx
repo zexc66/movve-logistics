@@ -26,6 +26,7 @@ export const MagneticButton = forwardRef<HTMLButtonElement, MagneticButtonProps>
 
     return (
       <button
+        type="button"
         ref={(el: HTMLButtonElement | null) => {
           (ref as React.MutableRefObject<HTMLButtonElement | null>).current = el
           if (typeof forwardedRef === 'function') forwardedRef(el)

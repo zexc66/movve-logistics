@@ -148,6 +148,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
                 {/* Mobile menu button */}
                 <button
+                  type="button"
                   ref={menuButtonRef}
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="md:hidden text-slate-400 hover:text-white transition-colors duration-200 p-3"

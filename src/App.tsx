@@ -31,6 +31,7 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boole
             <h1 className="text-4xl font-bold mb-4">Something went wrong</h1>
             <p className="text-slate-400 mb-6">Please refresh the page to try again.</p>
             <button
+              type="button"
               onClick={() => window.location.reload()}
               className="px-6 py-3 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-colors"
             >
