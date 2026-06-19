@@ -164,15 +164,9 @@ img {
 }
 
 *:focus-visible {
-  outline: 2px solid #10b981;
+  outline: 2px solid #34d399;
   outline-offset: 3px;
   border-radius: 2px;
-}
-
-@media (prefers-color-scheme: dark) {
-  *:focus-visible {
-    outline-color: #34d399;
-  }
 }
 
 /* Smooth Scrolling */
