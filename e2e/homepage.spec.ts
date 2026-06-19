@@ -8,7 +8,7 @@ test.describe('Homepage', () => {
 
   test('loads hero section', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator('h1')).toContainText('Global logistics')
+    await expect(page.locator('h1')).toContainText('Precision at Scale')
   })
 
   test('navigation links work', async ({ page }) => {
@@ -21,22 +21,22 @@ test.describe('Homepage', () => {
     await page.goto('/')
     await page.setViewportSize({ width: 375, height: 667 })
     await page.click('button[aria-label="Toggle menu"]')
-    await expect(page.locator('.mobile-menu')).toBeVisible()
+    await expect(page.locator('#mobile-menu')).toBeVisible()
   })
 
-  test('tracking form is present', async ({ page }) => {
+  test('tracking link is present', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator('input[placeholder*="tracking"]')).toBeVisible()
-    await expect(page.locator('button:has-text("Track")')).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Track Shipment' }).first()).toBeVisible()
   })
 })
 
 test.describe('Navigation', () => {
   test('all navigation links are present', async ({ page }) => {
     await page.goto('/')
+    const nav = page.getByRole('navigation', { name: 'Main navigation' })
     const navLinks = ['Home', 'About', 'Services', 'Track', 'Careers', 'Blog', 'Contact']
     for (const link of navLinks) {
-      await expect(page.locator(`text=${link}`)).toBeVisible()
+      await expect(nav.getByRole('link', { name: link })).toBeVisible()
     }
   })
 })
